@@ -43,6 +43,8 @@ local function setup_servers()
     -- Load specific server configs
     require("lsp.csharp")
     require("lsp.lua")
+    require("lsp.python")
+    require'lspconfig'.csharp.setup{on_attach=require'lsp'.on_attach}
 end
 
 setup_servers()
