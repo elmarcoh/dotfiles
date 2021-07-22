@@ -53,9 +53,11 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope.nvim'
 
     use 'tpope/vim-surround'
+    use 'sunjon/shade.nvim'
 
     -- plugin configs
     require('plugconf.telescope')
     require('plugconf.lightline')
+    require('plugconf.shade')
 end)
 
