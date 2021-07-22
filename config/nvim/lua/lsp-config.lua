@@ -52,3 +52,31 @@ require'lspinstall'.post_install_hook = function ()
     setup_servers() -- reload installed servers
     vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+
+vim.lsp.protocol.CompletionItemKind = {
+    "   (Text) ",
+    "   (Method)",
+    "   (Function)",
+    "   (Constructor)",
+    " ﴲ  (Field)",
+    "[] (Variable)",
+    "   (Class)",
+    " ﰮ  (Interface)",
+    "   (Module)",
+    " 襁 (Property)",
+    "   (Unit)",
+    "   (Value)",
+    " 練 (Enum)",
+    "   (Keyword)",
+    "   (Snippet)",
+    "   (Color)",
+    "   (File)",
+    "   (Reference)",
+    "   (Folder)",
+    "   (EnumMember)",
+    " ﲀ  (Constant)",
+    " ﳤ  (Struct)",
+    "   (Event)",
+    "   (Operator)",
+    "   (TypeParameter)"
+}
