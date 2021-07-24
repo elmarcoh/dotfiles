@@ -1,0 +1,5 @@
+[user]
+	email = arkanus@gmail.com
+	name = Marcos
+[push]
+	default = upstream
