@@ -15,6 +15,7 @@ bindkey '^[Od' backward-word                                    #
 # complete partially written commands
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+bindkey '^R' history-incremental-search-backward
 
 # antigen plugin manager
 # https://github.com/zsh-users/antigen
