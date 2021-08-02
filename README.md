@@ -15,10 +15,11 @@ stow <folder>
 stow neovim
 ```
 
-## Arch setup
+## Manjaro setup
 
 ```
-== TODO ==
+pamac install stow lsd manjaro-zsh-conifg
+pamac build neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
 ```
 
 ## Mac setup
