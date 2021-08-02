@@ -4,7 +4,8 @@ export EDITOR="nvim"
 eval "$(2>/dev/null dircolors || echo export CLICOLOR=1)"
 
 # ls
-alias ll="lsd"
+alias ll="lsd -l"
+alias lla="lsd -la"
 alias la="ls -a"
 alias lla="ls -la"
 
