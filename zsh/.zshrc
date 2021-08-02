@@ -13,14 +13,21 @@ bindkey '^[Od' backward-word                                    #
 # bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 # complete partially written commands
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+# bindkey "^[[A" history-beginning-search-backward
+# bindkey "^[[B" history-beginning-search-forward
 bindkey '^R' history-incremental-search-backward
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 # antigen plugin manager
 # https://github.com/zsh-users/antigen
 #
-source /usr/share/zsh/share/antigen.zsh
+2>/dev/null source /usr/share/zsh/share/antigen.zsh || source /usr/local/share/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen apply
 
@@ -39,15 +46,8 @@ fi
 #   source /usr/share/zsh/manjaro-zsh-prompt
 # fi
 
-if starship -h > /dev/null; then
-  eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
 
-if 1>/dev/null 2>/dev/null pyenv -h; then
-  eval "$(pyenv init - zsh)"
-  eval "$(pyenv init --path)"
-fi
-
-if 1>/dev/null 2>/dev/null pyenv virtualenv -h; then
-  eval "$(pyenv virtualenv-init -)"
-fi
+eval "$(pyenv init - zsh)"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"

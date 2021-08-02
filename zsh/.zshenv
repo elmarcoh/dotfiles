@@ -1,13 +1,10 @@
 # envvars
 export EDITOR="nvim"
-#eval  "$(dircolors)"
-
-# allows to go back in history with popd and see past dirs
-alias cd="pushd"
+# CLICOLOR is for mac
+eval "$(2>/dev/null dircolors || echo export CLICOLOR=1)"
 
 # ls
-alias ls="ls --color"
-alias ll="ls -l"
+alias ll="lsd"
 alias la="ls -a"
 alias lla="ls -la"
 
@@ -16,5 +13,4 @@ alias gst="git status"
 alias gpull="git pull --rebase"
 alias gssave="git stash save"
 alias gspop="git stash pop"
-
 alias gn="git-number"
