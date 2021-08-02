@@ -30,7 +30,7 @@ end
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
 return require('packer').startup(function(use)
-    -- use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
     -- use {'sonph/onehalf', rtp="vim", opt=true, as="onehalf"}
     use 'tomasr/molokai'
