@@ -19,8 +19,8 @@ alias cp="cp -i"  # ask before overwritting
 # Git stuff
 alias gst="git status"
 alias gpull="git pull --rebase"
-alias gssave="git stash save"
-alias gspop="git stash pop"
+alias gsave="git stash save"
+alias gpop="git stash pop"
 alias gn="git-number"
 
 # Useful clipboard thingies

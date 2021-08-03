@@ -14,6 +14,7 @@ bindkey '^[Od' backward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
+# bash style ctl + A & E for moving to BOL/EOL
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
@@ -34,8 +35,8 @@ bindkey "^[[B" down-line-or-beginning-search # Down key
 #
 2>/dev/null source /usr/share/zsh/share/antigen.zsh || source /usr/local/share/antigen/antigen.zsh
 
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-autosuggestions
+  antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
@@ -45,7 +46,6 @@ antigen apply
 neofetch  # show stuff in new terminals
 
 eval "$(starship init zsh)"
-
 eval "$(pyenv init - zsh)"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
