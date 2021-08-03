@@ -4,25 +4,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     underline = true,
     update_in_insert = true,
     virtual_text = false,
-
-    -- put virtual text into quickfix list
-    -- replaced by <leader>ll mapping
-
-    --    virtual_text = function(buf, client_id)
-    --        local diagnostics = vim.lsp.diagnostic.get_all()
-    --        local qflist = {}
-    --        for bufnr, diagnostic in pairs(diagnostics) do
-    --          for _, d in ipairs(diagnostic) do
-    --            d.bufnr = bufnr
-    --            d.lnum = d.range.start.line + 1
-    --            d.col = d.range.start.character + 1
-    --            d.text = d.message
-    --            table.insert(qflist, d)
-    --          end
-    --        end
-    --        vim.lsp.util.set_qflist(qflist)
-    --        return {spacing = 4, prefix = '❰'}
-    --    end
 }) 
 
 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -55,6 +36,8 @@ require'lspinstall'.post_install_hook = function ()
     vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
+-- Pretty icons 🎨
+
 vim.lsp.protocol.CompletionItemKind = {
     "   (Text) ",
     "   (Method)",
@@ -82,3 +65,9 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (Operator)",
     "   (TypeParameter)"
 }
+
+local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+for type, icon in pairs(signs) do
+  local hl = "LspDiagnosticsSign" .. type
+  vim.fn.sign_define(hl, {text=icon, texthl=hl, numhl=""})
+end

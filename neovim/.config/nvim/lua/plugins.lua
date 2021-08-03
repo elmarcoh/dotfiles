@@ -44,7 +44,20 @@ return require('packer').startup(function(use)
 
     use 'nvim-lua/completion-nvim'
 
-    use 'itchyny/lightline.vim'
+    -- use 'itchyny/lightline.vim'
+    -- require('plugconf.lightline')
+
+    use {
+      'hoob3rt/lualine.nvim',
+      requires = {
+        {'kyazdani42/nvim-web-devicons', opt = true},
+        -- {'nvim-lua/lsp-status.nvim', opt = true},
+      }
+    }
+    -- This makes diagnostics to lose color and underlines :'(
+    -- use 'nvim-lua/lsp-status.nvim'
+    require('plugconf.lualine')
+
     use 'tpope/vim-fugitive'
 
     -- All this for telescope
@@ -53,9 +66,6 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope.nvim'
 
     use 'tpope/vim-surround'
-    --
-    -- use 'sunjon/shade.nvim'
-    -- require('plugconf.shade')
 
     use 'b3nj5m1n/kommentary'
     require('plugconf.kommentary')
@@ -65,6 +75,5 @@ return require('packer').startup(function(use)
 
     -- plugin configs
     require('plugconf.telescope')
-    require('plugconf.lightline')
 end)
 
