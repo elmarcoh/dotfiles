@@ -47,8 +47,12 @@ return require('packer').startup(function(use)
     -- use 'itchyny/lightline.vim'
     -- require('plugconf.lightline')
 
-    use 'glepnir/galaxyline.nvim'
-    use 'folke/tokyonight.nvim'
+    use {'glepnir/galaxyline.nvim',
+      requires = {
+        'kyazdani42/nvim-web-devicons',
+        'folke/tokyonight.nvim'
+      }
+    }
     require('plugconf.galaxyline-neonline')
 
     use 'tpope/vim-fugitive'
