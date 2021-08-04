@@ -47,16 +47,9 @@ return require('packer').startup(function(use)
     -- use 'itchyny/lightline.vim'
     -- require('plugconf.lightline')
 
-    use {
-      'hoob3rt/lualine.nvim',
-      requires = {
-        {'kyazdani42/nvim-web-devicons', opt = true},
-        -- {'nvim-lua/lsp-status.nvim', opt = true},
-      }
-    }
-    -- This makes diagnostics to lose color and underlines :'(
-    -- use 'nvim-lua/lsp-status.nvim'
-    require('plugconf.lualine')
+    use 'glepnir/galaxyline.nvim'
+    use 'folke/tokyonight.nvim'
+    require('plugconf.galaxyline-neonline')
 
     use 'tpope/vim-fugitive'
 
