@@ -4,10 +4,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     underline = true,
     update_in_insert = true,
     virtual_text = false,
-}) 
+})
 
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+-- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnum, ...) end
+
 
 buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -66,7 +67,8 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (TypeParameter)"
 }
 
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+-- gutter (side column) icons
+local signs = {Error=" ", Warning=" ", Hint=" ", Information=" "}
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type
   vim.fn.sign_define(hl, {text=icon, texthl=hl, numhl=""})
