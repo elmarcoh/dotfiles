@@ -32,10 +32,12 @@ vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    -- color schemes
     -- use {'sonph/onehalf', rtp="vim", opt=true, as="onehalf"}
-    use 'tomasr/molokai'
+    -- use 'tomasr/molokai'
     -- use 'Th3Whit3Wolf/one-nvim'
-    use 'drewtempelmeyer/palenight.vim'
+    -- use 'drewtempelmeyer/palenight.vim'
+    use 'folke/tokyonight.nvim'
 
     use 'jiangmiao/auto-pairs'
 
@@ -43,9 +45,6 @@ return require('packer').startup(function(use)
     use 'kabouzeid/nvim-lspinstall'
 
     use 'nvim-lua/completion-nvim'
-
-    -- use 'itchyny/lightline.vim'
-    -- require('plugconf.lightline')
 
     use {
       'hoob3rt/lualine.nvim',
@@ -58,7 +57,6 @@ return require('packer').startup(function(use)
     -- use 'nvim-lua/lsp-status.nvim'
     require('plugconf.lualine')
 
-    use 'folke/tokyonight.nvim'
 
     use 'tpope/vim-fugitive'
 

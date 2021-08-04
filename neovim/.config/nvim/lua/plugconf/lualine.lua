@@ -15,6 +15,7 @@ require'lualine'.setup{
 
   sections = {
     lualine_c = {
+      -- this comes from the lualine docs
       {
         'diagnostics',
         -- table of diagnostic sources, available sources:
