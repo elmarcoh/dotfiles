@@ -12,13 +12,13 @@ fi
 alias ll="lsd -l"
 alias lla="lsd -la"
 alias la="ls -a"
-alias lla="ls -la"
 
 alias cp="cp -i"  # ask before overwritting
 
 # Git stuff
 alias gst="git status"
 alias gpull="git pull --rebase"
+alias gfetch="git fetch"
 alias gsave="git stash save"
 alias gpop="git stash pop"
 alias gn="git-number"
