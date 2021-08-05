@@ -70,8 +70,7 @@ return require('packer').startup(function(use)
     use 'b3nj5m1n/kommentary'
     require('plugconf.kommentary')
 
-    use 'glepnir/dashboard-nvim'
-    require('plugconf.dashboard-nvim')
+    use 'mhinz/vim-startify'
 
     -- plugin configs
     require('plugconf.telescope')
