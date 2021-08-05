@@ -48,7 +48,7 @@ antigen apply
 
 neofetch  # show stuff in new terminals
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(pyenv init - zsh)"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
