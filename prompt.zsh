@@ -28,7 +28,17 @@ function unpushed() {
   fi
 }
 
-zstyle ':vcs_info:git*' formats \
-  "%{$fg[cyan]%}%{$bg[cyan]$fg_bold[black]%} %b%m%u%c% $(unpushed) %{$bg[grey]$fg[cyan]%} "
+function open_round () {
+  echo "%{$fg[$1]%}$2%{$bg[$1]%}"
+}
 
-export PROMPT='%{$fg[grey]%}${vcs_info_msg_0_:-}%{$fg[cyan]$bg[grey]%} %1d%{$reset_color$fg[grey]%}%{$reset_color%} '
+function close_round () {
+  echo "%{$fg[$1]$bg[$2]%}$3"
+}
+
+zstyle ':vcs_info:git*' formats \
+  " %b" \
+  "%m%u%c% " \
+  # "%{$fg[cyan]%}%{$bg[cyan]$fg_bold[black]%} %b%m%u%c% $(unpushed) %{$bg[grey]$fg[cyan]%} "
+
+export PROMPT='$(open_round cyan )%{$fg[grey]%}${vcs_info_msg_0_} ${vcs_info_msg_1_} %{$fg[red]%}$(unpushed)%{$fg[cyan]%} $(close_round cyan grey ) %{$fg[cyan]$bg[grey]%} %1d%{$reset_color$fg[grey]%}%{$reset_color%} '
