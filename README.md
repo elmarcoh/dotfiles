@@ -18,7 +18,7 @@ stow neovim
 ## Manjaro setup
 
 ```
-pamac install stow lsd manjaro-zsh-conifg
+pamac install stow lsd manjaro-zsh-conifg ripgrep fzf
 pamac build neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
 ```
 
@@ -27,5 +27,5 @@ pamac build neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
 `brew` is required
 
 ```bash
-brew install zsh neofetch antigen starship pyenv pyenv-virtualenv lsd
+brew install zsh neofetch antigen starship pyenv pyenv-virtualenv lsd rg fzf
 ```
