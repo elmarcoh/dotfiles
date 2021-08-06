@@ -1,12 +1,3 @@
-function lspStatus()
-  if not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
-    local err_count = vim.lsp.diagnostic.get_count(0 ,'Error')
-    local wrn_count = vim.lsp.diagnostic.get_count(0 ,'Warning')
-    return ":".. wrn_count .. "  :" .. err_count
-  end
-end
-
-
 require'lualine'.setup{
   options={
     theme='dracula',
