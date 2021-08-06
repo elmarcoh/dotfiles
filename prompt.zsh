@@ -11,34 +11,48 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr ' '
-zstyle ':vcs_info:*' unstagedstr ' '
+zstyle ':vcs_info:*' unstagedstr ''
 precmd() {
     vcs_info
 }
 
-function unpushed() {
-  ahead=$(2>/dev/null git log --oneline @{u}..|wc -l)
-  behind=$(2>/dev/null git log --oneline ..@{u}|wc -l)
-  if [[ ( $ahead -gt 0 ) && ( $behind -gt 0 ) ]]; then
-    echo ''
-  elif [ $ahead -gt 0 ]; then
-    echo ''
-  elif [ $behind -gt 0 ]; then
-    echo ''
-  fi
-}
+# from https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples
+### git: Show +N/-N when your local branch is ahead-of or behind remote HEAD.
+# Make sure you have added misc to your 'formats':  %m
+zstyle ':vcs_info:git*+set-message:*' hooks git-st
+function +vi-git-st() {
+    local ahead behind
+    local -a gitstatus
 
-function open_round () {
-  echo "%{$fg[$1]%}$2%{$bg[$1]%}"
-}
+    # Exit early in case the worktree is on a detached HEAD
+    git rev-parse ${hook_com[branch]}@{upstream} >/dev/null 2>&1 || return 0
 
-function close_round () {
-  echo "%{$fg[$1]$bg[$2]%}$3"
+    local -a ahead_and_behind=(
+        $(git rev-list --left-right --count HEAD...${hook_com[branch]}@{upstream} 2>/dev/null)
+    )
+
+    ahead=${ahead_and_behind[1]}
+    behind=${ahead_and_behind[2]}
+
+    (( $ahead )) && (( $behind  )) && gitstatus+=( " " )
+    (( $ahead )) && ! (( $behind )) && gitstatus+=( " " )
+    (( $behind )) && ! (( $ahead )) && gitstatus+=( " " )
+
+
+    hook_com[misc]+=${(j:/:)gitstatus}
 }
 
 zstyle ':vcs_info:git*' formats \
-  " %b" \
-  "%m%u%c% " \
-  # "%{$fg[cyan]%}%{$bg[cyan]$fg_bold[black]%} %b%m%u%c% $(unpushed) %{$bg[grey]$fg[cyan]%} "
+  "%{$fg[cyan]%}%{$bg[cyan]$fg_bold[black]%} %b %{$fg[magenta]%}%m%u%c% %{$reset_color$fg[cyan]%} "
+  # " %b" \
+  # "%m%u%c% " \
 
-export PROMPT='$(open_round cyan )%{$fg[grey]%}${vcs_info_msg_0_}${vcs_info_msg_1_}%{$fg[red]%}$(unpushed)%{$fg[cyan]%} $(close_round cyan grey )%{$fg[cyan]$bg[grey]%} %1d%{$reset_color$fg[grey]%}%{$reset_color%} '
+zle-keymap-select () {
+  case $KEYMAP in
+    vicmd) print -rn -- $terminfo[cvvis];; # block cursor
+    viins|main) print -rn -- $terminfo[cnorm];; # less visible cursor
+  esac
+}
+
+NEWLINE=$'\n'
+export PROMPT='${NEWLINE}%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color$fg[cyan]%}  %1d%  ❱ %{$reset_color%}'
