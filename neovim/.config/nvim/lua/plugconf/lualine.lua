@@ -6,6 +6,7 @@ require'lualine'.setup{
 
   sections = {
     lualine_c = {
+      {'filename'},
       -- this comes from the lualine docs
       {
         'diagnostics',
