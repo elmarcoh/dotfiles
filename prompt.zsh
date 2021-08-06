@@ -55,4 +55,4 @@ zle-keymap-select () {
 }
 
 NEWLINE=$'\n'
-export PROMPT='${NEWLINE}%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color$fg[cyan]%}  %1d%  ❱ %{$reset_color%}'
+export PROMPT='${NEWLINE}%(1j.%{$fg_bold[yellow]%}%(2j.鬒.).)%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color$fg[cyan]%}  %1d%  ❱ %{$reset_color%}'
