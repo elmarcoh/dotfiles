@@ -15,18 +15,17 @@ buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 local function setup_servers()
     require'lspinstall'.setup()
 
-    -- Default config for new servers
 
-    -- local servers = require'lspinstall'.installed_servers()
-    -- for _, server in pairs(servers) do
-    --     require'lspconfig'[server].setup{on_attach = require('lsp').on_attach}
-    -- end
+    local servers = require'lspinstall'.installed_servers()
+    local lspconfig = require'lspconfig'
 
-    -- Load specific server configs
-    require("lsp.csharp")
-    require("lsp.lua")
-    require("lsp.python")
-    require'lspconfig'.csharp.setup{on_attach=require'lsp'.on_attach}
+    -- Tries to load configs from 'lsp/<lang>.lua', or use our default on_attach otherwise
+    for _, server in pairs(servers) do
+      local ok, _ = pcall(require, 'lsp.' .. server)
+      if not ok then
+        lspconfig[server].setup{on_attach = require('lsp').on_attach}
+      end
+    end
 end
 
 setup_servers()
