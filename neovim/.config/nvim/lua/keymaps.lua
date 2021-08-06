@@ -1,5 +1,5 @@
 local function setKeyMaps(maps)
-    for i, map in ipairs(maps) do
+    for _, map in ipairs(maps) do
         vim.cmd(map)
     end
 end
