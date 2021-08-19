@@ -57,4 +57,6 @@ return require('packer').startup(function(use)
 
     -- plugin configs
     require('plugconf.telescope')
+
+    use 'metakirby5/codi.vim'
 end)
