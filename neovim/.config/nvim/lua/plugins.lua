@@ -31,10 +31,16 @@ return require('packer').startup(function(use)
     use {
       'hoob3rt/lualine.nvim',
       requires = {
-        {'kyazdani42/nvim-web-devicons', opt = true},
+        'kyazdani42/nvim-web-devicons',
         -- {'nvim-lua/lsp-status.nvim', opt = true},
       }
     }
+
+    use {
+      'kyazdani42/nvim-tree.lua',
+      requires = 'kyazdani42/nvim-web-devicons',
+    }
+
     -- This makes diagnostics to lose color and underlines :'(
     -- use 'nvim-lua/lsp-status.nvim'
     require('plugconf.lualine')
