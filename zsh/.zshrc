@@ -4,6 +4,8 @@ SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history
 setopt appendhistory
 setopt autocd
+setopt extended_history
+setopt share_history
 
 zstyle ':completion:*' rehash true  # automatically find new executables in path
 zstyle ':completion:*' menu select  # display white bg when cycling completion options
