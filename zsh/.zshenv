@@ -23,6 +23,8 @@ alias gsave="git stash save"
 alias gpop="git stash pop"
 alias gci="git commit"
 alias gn="git-number"
+alias glog="git log --stat"
+alias glg="git log --oneline"
 
 # Useful clipboard thingies
 if type xsel > /dev/null; then
