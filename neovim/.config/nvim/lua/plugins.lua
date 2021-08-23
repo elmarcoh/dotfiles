@@ -68,4 +68,5 @@ return require('packer').startup(function(use)
     require('plugconf.telescope')
 
     use 'metakirby5/codi.vim'
+    use {'tyru/open-browser-github.vim', requires='tyru/open-browser.vim'}
 end)
