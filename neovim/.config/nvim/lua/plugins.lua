@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
       requires ={ 'kyazdani42/nvim-web-devicons', 'projekt0n/circles.nvim'},
       config = function()
         require'circles'.setup()
+        vim.api.nvim_set_keymap('n', '<Leader>3', ':NvimTreeToggle<cr>', {noremap=true})
       end
     }
 
