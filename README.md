@@ -24,8 +24,17 @@ pamac build neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
 
 ## Mac setup
 
-`brew` is required
+[Homebrew](https://brew.sh/) is required:
 
 ```bash
-brew install zsh neofetch antigen starship pyenv pyenv-virtualenv lsd rg fzf
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Install everything we need:
+
+```bash
+brew install zsh neofetch antigen starship pyenv pyenv-virtualenv lsd rg fzf git-number stow
+
+brew tap jason0x43/homebrew-neovim-nightly
+brew install neovim-nightly
 ```
