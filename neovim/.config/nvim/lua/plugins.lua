@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
 
     use 'neovim/nvim-lspconfig'
     use 'kabouzeid/nvim-lspinstall'
+    use 'mfussenegger/nvim-lint'
+    require('plugconf.nvim-lint')
 
     use 'nvim-lua/completion-nvim'
 
