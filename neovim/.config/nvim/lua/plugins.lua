@@ -40,9 +40,9 @@ return require('packer').startup(function(use)
 
     use {
       'kyazdani42/nvim-tree.lua',
-      requires ={ 'kyazdani42/nvim-web-devicons', 'projekt0n/circles.nvim'},
+      requires = { 'kyazdani42/nvim-web-devicons', },
       config = function()
-        require'circles'.setup()
+        require'nvim-tree'.setup {}
         vim.api.nvim_set_keymap('n', '<Leader>3', ':NvimTreeToggle<cr>', {noremap=true})
       end
     }
@@ -71,7 +71,7 @@ return require('packer').startup(function(use)
     require('plugconf.telescope')
 
     use 'metakirby5/codi.vim'
-    use {'tyru/open-browser-github.vim', requires='tyru/open-browser.vim'}
+    use {'tyru/open-browser-github.vim', requires={'tyru/open-browser.vim',}}
 
     use 'vimwiki/vimwiki'
     require('plugconf.vimwiki')
