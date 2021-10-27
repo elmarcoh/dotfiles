@@ -1,10 +1,11 @@
 require'lualine'.setup{
   options={
-    theme='dracula',
+    theme='nightfly',
     section_separators='', component_separators='',
   },
 
   sections = {
+    lualine_b = {'branch', 'diff'},
     lualine_c = {
       {'filename'},
       -- this comes from the lualine docs
