@@ -75,4 +75,8 @@ return require('packer').startup(function(use)
 
     use 'vimwiki/vimwiki'
     require('plugconf.vimwiki')
+
+    use 'Shougo/neosnippet.vim'
+    require 'plugconf.neosnippet'
+    use 'Shougo/neosnippet-snippets'
 end)
