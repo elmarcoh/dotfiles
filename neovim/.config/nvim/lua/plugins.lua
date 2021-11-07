@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
     -- use 'Th3Whit3Wolf/one-nvim'
     -- use 'drewtempelmeyer/palenight.vim'
     use 'folke/tokyonight.nvim'
+    use 'EdenEast/nightfox.nvim'
 
     use 'jiangmiao/auto-pairs'
 
@@ -72,9 +73,6 @@ return require('packer').startup(function(use)
 
     use 'metakirby5/codi.vim'
     use {'tyru/open-browser-github.vim', requires={'tyru/open-browser.vim',}}
-
-    use 'vimwiki/vimwiki'
-    require('plugconf.vimwiki')
 
     use 'Shougo/neosnippet.vim'
     require 'plugconf.neosnippet'
