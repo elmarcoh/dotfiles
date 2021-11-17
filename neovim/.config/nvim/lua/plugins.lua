@@ -74,7 +74,13 @@ return require('packer').startup(function(use)
     use 'metakirby5/codi.vim'
     use {'tyru/open-browser-github.vim', requires={'tyru/open-browser.vim',}}
 
-    use 'Shougo/neosnippet.vim'
-    require 'plugconf.neosnippet'
-    use 'Shougo/neosnippet-snippets'
+    -- snippets !
+    use {
+      "fhill2/telescope-ultisnips.nvim",
+      requires = {
+        'SirVer/ultisnips',
+        'honza/vim-snippets',
+      },
+    }
+    require 'plugconf.ultisnips'
 end)
