@@ -12,12 +12,13 @@ local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnum, ...) end
 
 buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 local lsp_installer = require'nvim-lsp-installer'
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lsp_installer.on_server_ready(function(server)
     -- Tries to load configs from 'lsp/<lang>.lua', or use our default on_attach otherwise
     local ok, _ = pcall(require, 'lsp.' .. server.name)
     if not ok then
-        server:setup{on_attach = require('lsp').on_attach}
+        server:setup{on_attach = require('lsp').on_attach, capabilities = capabilities}
     end
 end)
 
