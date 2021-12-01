@@ -11,33 +11,32 @@ local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnum, ...) end
 
 
 buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+local lsp_installer = require'nvim-lsp-installer'
 
-local function setup_servers()
-    require'lspinstall'.setup()
-
-
-    local servers = require'lspinstall'.installed_servers()
-    local lspconfig = require'lspconfig'
-
+lsp_installer.on_server_ready(function(server)
     -- Tries to load configs from 'lsp/<lang>.lua', or use our default on_attach otherwise
-    for _, server in pairs(servers) do
-      local ok, _ = pcall(require, 'lsp.' .. server)
-      if not ok then
-        lspconfig[server].setup{on_attach = require('lsp').on_attach}
-      end
+    local ok, _ = pcall(require, 'lsp.' .. server.name)
+    if not ok then
+        server:setup{on_attach = require('lsp').on_attach}
+    end
+end)
+
+-- Install stuff that I always use
+local my_servers = {
+    "sumneko_lua",
+    "pyright",
+    "omnisharp",
+}
+local servers = require'nvim-lsp-installer.servers'
+
+for _, server_name in pairs(my_servers) do
+    local available, server = servers.get_server(server_name)
+    if available and not server:is_installed() then
+        server:install()
     end
 end
 
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-
 -- Pretty icons 🎨
-
 vim.lsp.protocol.CompletionItemKind = {
     "   (Text) ",
     "   (Method)",

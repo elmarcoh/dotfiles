@@ -23,9 +23,13 @@ return require('packer').startup(function(use)
     use 'EdenEast/nightfox.nvim'
 
     use 'jiangmiao/auto-pairs'
+    use 'sheerun/vim-polyglot'
 
-    use 'neovim/nvim-lspconfig'
-    use 'kabouzeid/nvim-lspinstall'
+    use {
+      'neovim/nvim-lspconfig',
+      'williamboman/nvim-lsp-installer',
+    }
+
     use 'mfussenegger/nvim-lint'
     require('plugconf.nvim-lint')
 
