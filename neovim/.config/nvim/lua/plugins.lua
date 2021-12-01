@@ -94,6 +94,7 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
+      'onsails/lspkind-nvim',
       'hrsh7th/nvim-cmp',
       'quangnguyen30192/cmp-nvim-ultisnips',
     }
