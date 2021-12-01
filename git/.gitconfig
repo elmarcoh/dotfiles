@@ -18,3 +18,5 @@
 [core]
   # only use full scren less on big texts
   pager = less -F -X
+[init]
+	defaultBranch = main
