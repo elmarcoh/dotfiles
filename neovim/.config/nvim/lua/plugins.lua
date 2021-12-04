@@ -30,8 +30,9 @@ return require('packer').startup(function(use)
       'williamboman/nvim-lsp-installer',
     }
 
-    use 'mfussenegger/nvim-lint'
-    require('plugconf.nvim-lint')
+    -- report lint errors as LSP thingies (i.e flake8)
+    use 'jose-elias-alvarez/null-ls.nvim'
+    require('plugconf.null-ls')
 
     use 'nvim-lua/completion-nvim'
 
