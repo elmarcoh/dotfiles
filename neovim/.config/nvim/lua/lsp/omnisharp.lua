@@ -19,7 +19,7 @@ FileOptions:SystemExcludeSearchPatterns:2=**/.hg \
 FileOptions:SystemExcludeSearchPatterns:3=**/CVS \
 FileOptions:SystemExcludeSearchPatterns:4=**/.DS_Store"
 
-require'lspconfig'.omnisharp.setup{
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid), flags },
-    on_attach = require('lsp').on_attach
-}
+require("lspconfig").omnisharp.setup({
+	cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid), flags },
+	on_attach = require("lsp").on_attach,
+})
