@@ -11,6 +11,8 @@ setKeyMaps({
 	"nmap <c-j> :bnext<cr>",
 	"nmap <c-k> :bprev<cr>",
 
+	"nnoremap Y y$",
+
 	-- Exit to normal mode in terminal with double ESC
 	"tnoremap <Esc><Esc> <C-\\><C-n>",
 })
