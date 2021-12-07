@@ -12,8 +12,37 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr ' '
 zstyle ':vcs_info:*' unstagedstr ''
-precmd() {
-    vcs_info
+
+## timer function from https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0
+function preexec() {
+  timer=$(date +%s%3N)
+}
+
+function precmd() {
+  vcs_info
+  if [ $timer ]; then
+    local now=$(date +%s%3N)
+    local d_ms=$(($now-$timer))
+    local d_s=$((d_ms / 1000))
+    local ms=$((d_ms % 1000))
+    local s=$((d_s % 60))
+    local m=$(((d_s / 60) % 60))
+    local h=$((d_s / 3600))
+    if ((h > 0)); then elapsed=${h}h${m}m
+    elif ((m > 0)); then elapsed=${m}m${s}s
+    elif ((s >= 10)); then elapsed=${s}.$((ms / 100))s
+    elif ((s > 0)); then elapsed=${s}.$((ms / 10))s
+    # else elapsed=${ms}ms
+    else elapsed=""
+    fi
+
+    if [[ -n "$elapsed" ]]; then
+      export ELAPSED="祥${elapsed}"
+    else
+      export ELAPSED=""
+    fi
+    unset timer
+  fi
 }
 
 # from https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples
@@ -42,8 +71,11 @@ function +vi-git-st() {
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 
+pillopn="%F{238}%}%K{238}%F{14}"
+pillcls="%{$reset_color%}%F{238}"
+
 zstyle ':vcs_info:git*' formats \
-  "%{$fg[cyan]%}%{$bg[cyan]$fg_bold[black]%} %b %{$fg[magenta]%}%m%u%c% %{$reset_color$fg[cyan]%} "
+  "${pillopn} %b %m%u%c "
   # " %b" \
   # "%m%u%c% " \
 
@@ -54,5 +86,9 @@ zle-keymap-select () {
   esac
 }
 
+fpillopn="%F{14}%K{14}$fg_bold[black]"
+fpillcls="%{$reset_color%}%F{14}"
+bgtask="%(1j. .)"
+
 NEWLINE=$'\n'
-export PROMPT='${NEWLINE}%(1j.%{$fg_bold[yellow]%}%(2j.鬒.).)%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color$fg[cyan]%}  %1d%  ❱ %{$reset_color%}'
+export PROMPT='${NEWLINE}${vcs_info_msg_0_}%{$fpillopn$bgtask%} %1d${fpillcls}${ELAPSED}%{$reset_color%}%F{0}%K{0} '
