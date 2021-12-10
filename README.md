@@ -15,10 +15,16 @@ stow <folder>
 stow neovim
 ```
 
+## Fast setup
+
+```bash 
+make install stow
+```
+
 ## Manjaro setup
 
 ```
-pamac install stow lsd manjaro-zsh-conifg ripgrep fzf
+pamac install stow lsd manjaro-zsh-config ripgrep fzf
 pamac build neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
 ```
 
