@@ -1,6 +1,6 @@
 local builtins = require("null-ls").builtins
 
-require("null-ls").config({
+require("null-ls").setup({
 	sources = {
 
 		-- check https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
@@ -12,7 +12,5 @@ require("null-ls").config({
 		builtins.formatting.black,
 		builtins.formatting.isort,
 	},
-})
-require("lspconfig")["null-ls"].setup({
 	on_attach = require("lsp").on_attach,
 })
