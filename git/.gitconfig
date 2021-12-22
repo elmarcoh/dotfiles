@@ -20,3 +20,7 @@
   pager = less -F -X
 [init]
 	defaultBranch = main
+[alias]
+	ssh = stash save
+	br = branch
+	lg = log --oneline
