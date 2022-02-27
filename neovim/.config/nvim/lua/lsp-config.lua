@@ -7,7 +7,7 @@ vim.diagnostic.config({
 
 -- local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 local function buf_set_option(...)
-	vim.api.nvim_buf_set_option(bufnum, ...)
+	vim.api.nvim_buf_set_option(vim.fn.bufnr('%'), ...)
 end
 
 buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
