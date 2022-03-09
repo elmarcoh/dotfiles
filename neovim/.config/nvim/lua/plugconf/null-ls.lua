@@ -28,6 +28,7 @@ require("null-ls").setup({
 
 		-- python
 		builtins.diagnostics.flake8,
+		builtins.diagnostics.mypy,
 		pycln,
 		builtins.formatting.black,
 		builtins.formatting.isort,

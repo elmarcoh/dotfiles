@@ -47,10 +47,7 @@ return require("packer").startup(function(use)
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = { "kyazdani42/nvim-web-devicons" },
-		config = function()
-			require("nvim-tree").setup({})
-			vim.api.nvim_set_keymap("n", "<Leader>3", ":NvimTreeToggle<cr>", { noremap = true })
-		end,
+		config = require'plugconf.nvim-tree'.config
 	})
 
 	-- This makes diagnostics to lose color and underlines :'(
@@ -89,7 +86,6 @@ return require("packer").startup(function(use)
 	require("plugconf.ultisnips")
 
 	use({
-		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
