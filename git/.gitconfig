@@ -24,3 +24,4 @@
 	ssh = stash save
 	br = branch
 	lg = log --oneline
+	co = checkout
