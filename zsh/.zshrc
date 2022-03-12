@@ -47,7 +47,11 @@ antigen apply
 
 ## User confs
 
-neofetch  # show stuff in new terminals
+# show stuff in new terminals
+fetch_progs=(nerdfetch neofetch pfetch)
+for fetchprog in $fetch_progs; do
+  which $fetchprog > /dev/null && $fetchprog && break
+done
 
 eval "$(starship init zsh)"
 eval "$(pyenv init - zsh)"
