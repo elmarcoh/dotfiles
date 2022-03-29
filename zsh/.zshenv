@@ -45,3 +45,4 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
 [[ -f $HOME/.env ]] && source $HOME/.env
+[[ -d $HOME/go/bin ]] && path+=($HOME/go/bin)
