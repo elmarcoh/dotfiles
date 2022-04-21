@@ -46,3 +46,4 @@ export LESS=-R
 
 [[ -f $HOME/.env ]] && source $HOME/.env
 [[ -d $HOME/go/bin ]] && path+=($HOME/go/bin)
+[[ -f $HOME/.gvm/scripts/gvm ]] && source $HOME/.gvm/scripts/gvm
