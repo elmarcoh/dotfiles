@@ -17,3 +17,10 @@ local set_keymap = vim.api.nvim_set_keymap
 
 set_keymap("n", "<M-j>", "<cmd>bnext<cr>", opts)
 set_keymap("n", "<M-k>", "<cmd>bprev<cr>", opts)
+
+-- Startify
+set_keymap("n", "<leader>ss", "<cmd>Startify<cr>", opts)
+set_keymap("n", "<leader>SS", "<cmd>SSave<cr>", opts)
+
+-- Fugitive
+set_keymap("n", "<leader>gg", "<cmd>Git<cr>", opts)
