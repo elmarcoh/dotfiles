@@ -15,10 +15,6 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- color schemes
-	-- use {'sonph/onehalf', rtp="vim", opt=true, as="onehalf"}
-	-- use 'tomasr/molokai'
-	-- use 'Th3Whit3Wolf/one-nvim'
-	-- use 'drewtempelmeyer/palenight.vim'
 	use("folke/tokyonight.nvim")
 	use("EdenEast/nightfox.nvim")
 
@@ -34,13 +30,10 @@ return require("packer").startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	require("plugconf.null-ls")
 
-	use("nvim-lua/completion-nvim")
-
 	use({
 		"hoob3rt/lualine.nvim",
 		requires = {
 			"kyazdani42/nvim-web-devicons",
-			-- {'nvim-lua/lsp-status.nvim', opt = true},
 		},
 	})
 

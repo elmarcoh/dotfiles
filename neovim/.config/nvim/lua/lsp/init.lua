@@ -36,8 +36,6 @@ function lsp_module.on_attach(client, bufnr)
 	-- Let's see if I can survive without this, the diagnostics windows sometimes gets stuck
 	-- when jumping form one file to the other while its open :(
 	-- vim.api.nvim_exec('autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})', false)
-
-	require("completion").on_attach(client, bufnr)
 end
 
 return lsp_module
