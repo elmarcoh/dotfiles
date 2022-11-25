@@ -17,6 +17,13 @@ BTRFS mount w/options:
 mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/mapper/root /mnt
 ```
 
+## GNOME wayland with nvidia
+
+backup or remove the gdm udev rules, I moved them to the root
+```
+mv /usr/lib/udev/rules.d/61-gdm.rules /
+```
+
 
 ## GNOME US intl keyboard
 
