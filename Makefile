@@ -27,5 +27,5 @@ install-mac:
 	brew install neovim-nightly
 
 install-linux:
-	pamac install stow lsd manjaro-zsh-config ripgrep fzf && \
-	pamac build neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
+	sudo pacman -S stow lsd ripgrep fzf && \
+	yay -S neovim-nightly-bin antigen starship-bin pyenv pyenv-virtualenv
