@@ -44,6 +44,10 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
+#AWS stuff
+export AWS_PAGER=""
+
 [[ -f $HOME/.env ]] && source $HOME/.env
 [[ -d $HOME/go/bin ]] && path+=($HOME/go/bin)
 [[ -f $HOME/.gvm/scripts/gvm ]] && source $HOME/.gvm/scripts/gvm
+[[ -f $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
