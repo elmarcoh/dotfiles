@@ -106,9 +106,11 @@ vim.o.smartcase = true
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.updatetime = 250
+vim.o.list = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
+vim.opt.listchars:append { lead = '·', trail = '·' }
 
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -414,12 +416,19 @@ cmp.setup {
 
 -- nvim-tree setup
 require('nvim-tree').setup()
-vim.keymap.set('n', '<leader>3', require('nvim-tree.api').tree.toggle)
+local nvtapi = require('nvim-tree.api')
+
+local tree_find_file = function()
+  nvtapi.tree.find_file(vim.fn.expand("%:p"))
+end
+
+vim.keymap.set('n', '<leader>3', nvtapi.tree.toggle, { desc = 'toggle nvim tree' })
+vim.keymap.set('n', '<leader>4', tree_find_file, { desc = 'toggle nvim tree' })
 
 
 -- misc keymaps
-vim.keymap.set('n', '<leader>j', ':bnext<cr>', {silent=true, desc='next buffer'})
-vim.keymap.set('n', '<leader>k', ':bprev<cr>', {silent=true, desc='previous buffer'})
+vim.keymap.set('n', '<leader>j', ':bnext<cr>', { silent = true, desc = 'next buffer' })
+vim.keymap.set('n', '<leader>k', ':bprev<cr>', { silent = true, desc = 'previous buffer' })
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
