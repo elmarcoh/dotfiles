@@ -153,7 +153,17 @@ require('lualine').setup {
 }
 
 -- Enable Comment.nvim
-require('Comment').setup()
+require('Comment').setup({
+  ignore = '^$',
+  toggler = {
+    line = '<leader>cc',
+    block = '<leader>bc',
+  },
+  opleader = {
+    line = '<leader>c',
+    block = '<leader>b',
+  },
+})
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
