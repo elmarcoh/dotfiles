@@ -25,6 +25,10 @@ alias gci="git commit"
 alias gn="git-number"
 alias glog="git log --stat"
 alias glg="git log --oneline"
+alias gdd='git diff'
+
+# docker
+alias dcp='docker compose'
 
 # Useful clipboard thingies
 if type xsel > /dev/null; then
