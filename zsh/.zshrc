@@ -1,7 +1,7 @@
 ## Shell confs (a lot of them stolen from manjaro-zsh-config 😅)
 
-SAVEHIST=1000  # Save most-recent 1000 lines
-HISTSIZE=1000
+SAVEHIST=100000
+HISTSIZE=100000
 HISTFILE=~/.zsh_history
 setopt appendhistory
 setopt autocd
