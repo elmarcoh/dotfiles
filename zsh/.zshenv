@@ -12,20 +12,26 @@ fi
 alias ll="lsd -l"
 alias lla="lsd -la"
 alias la="ls -a"
-
 alias cp="cp -i"  # ask before overwritting
 
 # Git stuff
 alias gst="git status"
-alias gp="git pull --rebase"
-alias gfetch="git fetch"
+alias gfetch="git fetch --all"
 alias gsave="git stash save"
 alias gpop="git stash pop"
+
 alias gci="git commit"
-alias gn="git-number"
+alias gco="git checkout"
+alias gpu="git pull --rebase"
+alias gpsh="git push"
+
 alias glog="git log --stat"
 alias glg="git log --oneline"
+
 alias gdd='git diff'
+alias gdc='git diff --cached'
+
+alias gn="git-number"
 
 # docker
 alias dcp='docker compose'
@@ -36,7 +42,6 @@ if type xsel > /dev/null; then
   alias xpaste="xsel -ob"
   alias dirclip="echo $PWD|xcopy"
 fi
-
 
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
