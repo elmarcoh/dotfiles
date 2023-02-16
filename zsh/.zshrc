@@ -41,9 +41,12 @@ bindkey "^[[B" down-line-or-beginning-search # Down key
 
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle joshskidmore/zsh-fzf-history-search
 
 antigen apply
 
+### fzf-history
+export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--height=10"
 
 ## User confs
 
