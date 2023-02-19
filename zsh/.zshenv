@@ -11,6 +11,7 @@ fi
 # ls
 alias ll="lsd -l"
 alias lla="lsd -la"
+alias ltree="lsd --tree"
 alias la="ls -a"
 alias cp="cp -i"  # ask before overwritting
 
