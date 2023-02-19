@@ -27,6 +27,7 @@ require('packer').startup(function(use)
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
     },
   }
 
@@ -311,7 +312,6 @@ local on_attach = function(_, bufnr)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-  nmap('<leader>fc', vim.lsp.buf.format, '[F]ormat [F]ile')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -333,9 +333,9 @@ local on_attach = function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
+  -- vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+  --   vim.lsp.buf.format()
+  -- end, { desc = 'Format current buffer with LSP' })
 end
 
 -- Enable the following language servers
@@ -384,6 +384,18 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- null-ls setup
+local null_ls = require("null-ls")
+null_ls.setup({
+  debug = true,
+  sources = {
+    null_ls.builtins.formatting.prettier,
+  },
+  on_attach = function(client, bufnr)
+    vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, { desc = '[F]ile for[m]at' })
+  end
+})
 
 -- Turn on lsp status information
 require('fidget').setup()
