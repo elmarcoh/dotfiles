@@ -8,7 +8,7 @@ endif
 targets = \
 git \
 linux-chrome \
-neovim \
+nvim \
 tmux \
 zsh
 
