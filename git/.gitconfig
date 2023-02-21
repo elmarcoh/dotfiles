@@ -12,8 +12,8 @@
   all = true
   prune = true
 
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+; [url "git@github.com:"]
+;   insteadOf = https://github.com/
 
 [core]
   # only use full scren less on big texts
