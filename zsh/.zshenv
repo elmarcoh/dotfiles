@@ -18,13 +18,11 @@ alias cp="cp -i"  # ask before overwritting
 # Git stuff
 alias gst="git status"
 alias gfetch="git fetch --all"
-alias gsave="git stash save"
-alias gpop="git stash pop"
 
-alias gci="git commit"
+alias gcommit="git commit"
 alias gco="git checkout"
-alias gpu="git pull --rebase"
-alias gpsh="git push"
+alias gpull="git pull --rebase"
+alias gpush="git push"
 
 alias glog="git log --stat"
 alias glg="git log --oneline"
