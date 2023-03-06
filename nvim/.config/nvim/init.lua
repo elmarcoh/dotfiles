@@ -20,6 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 vim.o.breakindent = true
+vim.o.cursorline = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.mouse = "a"
