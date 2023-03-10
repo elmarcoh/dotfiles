@@ -34,6 +34,8 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search   # Up key
 bindkey "^[[B" down-line-or-beginning-search # Down key
 
+bindkey "^Z" push-line  # save current command in stack (for next line)
+
 # antigen plugin manager
 # https://github.com/zsh-users/antigen
 #
