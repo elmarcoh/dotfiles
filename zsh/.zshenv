@@ -44,6 +44,16 @@ function envfileload() {
   fi
 }
 
+# list processes swap usage
+function swap_usage() {
+  column --table --separator=$'\t' <<< $(
+    echo "SIZE\tPID\tCMD"
+    for size pid in $(grep --color Swap /proc/*/status|rg '/proc/([0-9]+)/[^:]+:[^:]+:\s+([0-9]+)' -or '$2 $1'|sort -nr|head -20); do
+      [ "$size" -gt 0 ] && printf "%s kb\t%s\t%s\n" $size $pid "$(ps -p $pid -o cmd --no-headers)"
+    done
+  )
+}
+
 # Useful clipboard thingies
 if type xsel > /dev/null; then
   alias xcopy="xsel -ib"
