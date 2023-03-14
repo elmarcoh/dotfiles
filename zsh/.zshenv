@@ -35,6 +35,15 @@ alias gn="git-number"
 # docker
 alias dcp='docker compose'
 
+#easily load .env files with variables
+function envfileload() {
+  if [ -f "$1" ]; then
+    export $(grep -oe "^\w\+=.*" "$1"|xargs)
+  else
+    echo "file \`$1\` not found"
+  fi
+}
+
 # Useful clipboard thingies
 if type xsel > /dev/null; then
   alias xcopy="xsel -ib"
