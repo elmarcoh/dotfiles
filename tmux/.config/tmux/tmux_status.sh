@@ -2,7 +2,7 @@
 
 function memory_usage() {
   read used total <<< $(free -m | awk "/$1/{printf \$2\" \"\$3}")
-  percent=$((100 * $total / $used))
+  percent=$(bc <<< "scale=1; 100 * $total / $used")
   printf "%s %.1f%%" $2 $percent
 }
 
