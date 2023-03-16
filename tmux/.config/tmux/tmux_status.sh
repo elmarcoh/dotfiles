@@ -15,7 +15,7 @@ function container_count() {
 }
 
 function main() {
-  printf "%s %s | %s | %s" \
+  printf "#[fg=color99] %s %s | %s | %s" \
     "$(vpn_connection)" \
     "$(container_count)" \
     "$(memory_usage Mem )" \
