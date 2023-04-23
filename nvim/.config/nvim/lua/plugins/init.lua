@@ -24,7 +24,7 @@ return {
     opts = {},
   },
   {
-   -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
     opts = {
       signs = {
@@ -59,7 +59,7 @@ return {
   },
 
   {
-   -- Add indentation guides even on blank lines
+    -- Add indentation guides even on blank lines
     "lukas-reineke/indent-blankline.nvim",
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`

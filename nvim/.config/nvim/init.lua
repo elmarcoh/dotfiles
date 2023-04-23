@@ -48,7 +48,7 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set("n", ";d", ":bd<cr>", { silent= true })
+vim.keymap.set("n", ";d", ":bd<cr>", { silent = true })
 
 -- Remap for clipboard copy/paste
 vim.keymap.set("v", "<leader>y", '"+y')
