@@ -21,6 +21,7 @@ require("lazy").setup("plugins")
 
 vim.o.breakindent = true
 vim.o.cursorline = true
+vim.o.colorcolumn = "80"
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.mouse = "a"
@@ -46,6 +47,8 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+vim.keymap.set("n", ";d", ":bd<cr>", { silent= true })
 
 -- Remap for clipboard copy/paste
 vim.keymap.set("v", "<leader>y", '"+y')
@@ -158,9 +161,9 @@ mason_lspconfig.setup_handlers({
       on_attach = on_attach,
       settings = servers[server_name],
     }
-    if server_name == "solargraph" then
-      settings["cmd"] = { "bundle", "exec", "solargraph", "stdio" }
-    end
+    -- if server_name == "solargraph" then
+    --   settings["cmd"] = { "bundle", "exec", "solargraph", "stdio" }
+    -- end
     require("lspconfig")[server_name].setup(settings)
   end,
 })
