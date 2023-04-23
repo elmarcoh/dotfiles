@@ -23,7 +23,8 @@ return {
     "folke/which-key.nvim",
     opts = {},
   },
-  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  {
+   -- Adds git releated signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
     opts = {
       signs = {
@@ -57,7 +58,8 @@ return {
     },
   },
 
-  { -- Add indentation guides even on blank lines
+  {
+   -- Add indentation guides even on blank lines
     "lukas-reineke/indent-blankline.nvim",
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
@@ -78,11 +80,15 @@ return {
   },
 
   {
-    'goolord/alpha-nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
+    "goolord/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("alpha").setup(require("alpha.themes.startify").config)
+    end,
   },
+
+  -- dreaded copilot 💀
+  { "github/copilot.vim" },
+  { "TimUntersberger/neogit" },
 }
 -- vim: ts=2 sts=2 sw=2 expandtab
