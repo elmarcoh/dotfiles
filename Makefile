@@ -10,7 +10,8 @@ git \
 linux-chrome \
 nvim \
 tmux \
-zsh
+zsh \
+neofetch 
 
 .PHONY: $(targets)
 
