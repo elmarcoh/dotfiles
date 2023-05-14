@@ -55,12 +55,7 @@ export ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--height=10"
 # show stuff in new terminals except when recording terminal
 if [[ $ASCIINEMA_REC != "1" ]]
 then
-
-  fetch_progs=(nerdfetch neofetch pfetch)
-  for fetchprog in $fetch_progs; do
-    which $fetchprog > /dev/null && $fetchprog && break
-  done
-
+  which neofetch > /dev/null && neofetch
 fi
 
 eval "$(pyenv init - zsh)"
