@@ -134,7 +134,8 @@ local servers = {
       telemetry = { enable = false },
     },
   },
-  solargraph = {},
+  -- Until I have to deal with ruby again
+  -- solargraph = {},
 }
 
 -- Setup neovim lua configuration
@@ -161,6 +162,7 @@ mason_lspconfig.setup_handlers({
       on_attach = on_attach,
       settings = servers[server_name],
     }
+    -- Until I have to deal with ruby again
     -- if server_name == "solargraph" then
     --   settings["cmd"] = { "bundle", "exec", "solargraph", "stdio" }
     -- end
