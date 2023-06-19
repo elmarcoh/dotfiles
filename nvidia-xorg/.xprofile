@@ -1,0 +1,1 @@
+nvidia-settings --assign CurrentMetaMode="DPY-0:nvidia-auto-select{ForceCompositionPipeline=On,AllowGSYNCCompatible=On}"
