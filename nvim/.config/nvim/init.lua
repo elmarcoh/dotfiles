@@ -61,6 +61,8 @@ vim.keymap.set("n", "<leader>P", '"+P')
 vim.keymap.set("n", "]b", ":bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "[b", ":bprevious<cr>", { desc = "Previous buffer" })
 
+vim.keymap.set("n", "<leader>ng", ":Neogit<cr>", { desc = "Open Neogit" })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
