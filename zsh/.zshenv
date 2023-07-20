@@ -19,6 +19,7 @@ alias cp="cp -i"  # ask before overwritting
 
 # Git stuff
 alias gst="git status"
+alias gg="git status"
 alias gfetch="git fetch --all"
 alias ggrep="git grep"
 alias ggrepc="git grep -C 5"
@@ -40,6 +41,8 @@ alias gn="git-number"
 
 # docker
 alias dcp='docker compose'
+
+alias nvim-godot='nvim --listen ~/.cache/nvim/godot.pipe'
 
 #easily load .env files with variables
 function envfileload() {
