@@ -172,6 +172,8 @@ mason_lspconfig.setup_handlers({
   end,
 })
 
+require("lspconfig").gdscript.setup(settings)
+
 -- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
