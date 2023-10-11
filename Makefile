@@ -18,7 +18,7 @@ neofetch
 stow: $(targets)
 
 $(targets):
-	stow $@
+	stow $@ -t $$HOME
 
 install: install-$(INOS)
 
