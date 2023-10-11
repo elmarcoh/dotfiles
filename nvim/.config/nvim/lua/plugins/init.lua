@@ -18,6 +18,14 @@ return {
     },
   },
 
+  -- DAP debugging & stuff
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "theHamsta/nvim-dap-virtual-text",
+    },
+  },
+
   -- Useful plugin to show you pending keybinds.
   {
     "folke/which-key.nvim",
@@ -76,6 +84,14 @@ return {
     build = "make",
     cond = function()
       return vim.fn.executable("make") == 1
+    end,
+  },
+
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
 
