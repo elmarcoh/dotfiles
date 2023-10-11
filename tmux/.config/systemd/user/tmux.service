@@ -5,8 +5,8 @@ Description=Start tmux in detached session
 Type=forking
 ; this is only needed if this file is on /etc/systemd/system/
 ; User=%I
-ExecStart=/usr/bin/tmux new-session -s $USER -c $HOME -d
-ExecStop=/usr/bin/tmux kill-session -t $USER
+ExecStart=/usr/bin/tmux new-session -s 🍉 -c $HOME -d
+ExecStop=/usr/bin/tmux kill-session -t 🍉
 
 [Install]
 WantedBy=gnome-session.target
