@@ -24,6 +24,8 @@ vim.keymap.set("n", "<leader>P", '"+P')
 vim.keymap.set("n", "]b", ":bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "[b", ":bprevious<cr>", { desc = "Previous buffer" })
 
+vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite file" })
+
 vim.keymap.set("n", "<leader>ng", ":Neogit<cr>", { desc = "Open Neogit" })
 
 -- Diagnostic keymaps

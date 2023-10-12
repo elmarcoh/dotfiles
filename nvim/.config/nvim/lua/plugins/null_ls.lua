@@ -7,7 +7,7 @@ return {
       sources = {
         formatting.stylua,
         formatting.prettier,
-        formatting.rubocop,
+        -- formatting.rubocop,
       },
     })
   end,

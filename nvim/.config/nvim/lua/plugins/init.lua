@@ -26,7 +26,7 @@ return {
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
+  -- Useful plugin to show you keybinds.
   {
     "folke/which-key.nvim",
     opts = {},
@@ -79,8 +79,6 @@ return {
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
     build = "make",
     cond = function()
       return vim.fn.executable("make") == 1

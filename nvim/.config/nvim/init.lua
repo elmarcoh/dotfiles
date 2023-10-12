@@ -16,9 +16,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- load plugins from lua/plugins
-require("lazy").setup("plugins")
-
 vim.o.breakindent = true
 vim.o.cursorline = true
 vim.o.colorcolumn = "80"
@@ -34,7 +31,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"
 
--- Netrw with tree view
+-- Netrw with tree view (<leader>3)
 vim.g.netrw_banner=0
 vim.g.netrw_browse_split=4
 vim.g.netrw_altv=2
@@ -45,9 +42,6 @@ vim.o.completeopt = "menuone,noselect"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-
--- [[ Basic Keymaps ]]
-require('keymaps')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -60,10 +54,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
+-- load plugins from lua/plugins
+require("lazy").setup("plugins")
+
 -- Setup neovim lua configuration
 require("neodev").setup()
 
--- LSP settings.
+-- specific settings
 require('lsp')
+require('keymaps')
 
 -- vim: ts=2 sts=2 sw=2 et
