@@ -9,8 +9,6 @@ return {
       -- Automatically install LSPs to stdpath for neovim
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { "j-hui/fidget.nvim", opts = {}, tag='legacy' },
 
       -- Additional lua configuration, makes nvim stuff amazing!
@@ -69,20 +67,10 @@ return {
   {
     -- Add indentation guides even on blank lines
     "lukas-reineke/indent-blankline.nvim",
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
     opts = {
       char = "┊",
       show_trailing_blankline_indent = false,
     },
-  },
-
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-    cond = function()
-      return vim.fn.executable("make") == 1
-    end,
   },
 
   {
@@ -95,6 +83,17 @@ return {
 
   -- dreaded copilot 💀
   { "github/copilot.vim" },
-  { "TimUntersberger/neogit" },
+
+  {
+    -- Manage Git repo from neovim
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "nvim-telescope/telescope.nvim", -- optional
+      "sindrets/diffview.nvim",        -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true
+  }
 }
 -- vim: ts=2 sts=2 sw=2 expandtab

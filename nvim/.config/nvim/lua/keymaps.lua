@@ -21,8 +21,8 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("n", "<leader>P", '"+P')
 
 -- Buffer navigation
-vim.keymap.set("n", "]b", ":bnext<cr>", { desc = "Next buffer" })
-vim.keymap.set("n", "[b", ":bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", ":bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprevious<cr>", { desc = "Previous buffer" })
 
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite file" })
 

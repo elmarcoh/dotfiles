@@ -1,4 +1,4 @@
--- LSP settings.
+-- LSP settings.lsp
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -86,3 +86,4 @@ mason_lspconfig.setup_handlers({
     require("lspconfig")[server_name].setup(settings)
   end,
 })
+-- vim: ts=2 sts=2 sw=2 et
