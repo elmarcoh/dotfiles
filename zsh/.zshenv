@@ -83,6 +83,10 @@ export LESS=-R
 #AWS stuff
 export AWS_PAGER=""
 
+# Use multiple cores for `xz` compression
+# setting to 0 will make it use all cores
+export XZ_DEFAULTS="-T 3"
+
 [[ -f $HOME/.env ]] && source $HOME/.env
 [[ -d $HOME/go/bin ]] && path+=($HOME/go/bin)
 [[ -f $HOME/.gvm/scripts/gvm ]] && source $HOME/.gvm/scripts/gvm
