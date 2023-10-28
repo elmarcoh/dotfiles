@@ -32,12 +32,21 @@ return {
     },
   },
 
+  -- colorschemes
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme("tokyonight-night")
+  --   end,
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("tokyonight-night")
-    end,
+    config = function ()
+      vim.cmd.colorscheme("catppuccin-mocha")
+    end
   },
 
   {
@@ -46,7 +55,7 @@ return {
     opts = {
       options = {
         icons_enabled = false,
-        theme = "tokyonight",
+        theme = "catppuccin",
         component_separators = "|",
         section_separators = "",
       },
