@@ -5,6 +5,6 @@ return {
     local startify = require("alpha.themes.startify")
     -- startify.nvim_web_devicons.enabled = false
     require("alpha").setup(startify.config)
-    vim.keymap.set("n", "<leader>al", ":Alpha<cr>", { desc = "Open Alpha start page" })
+    vim.keymap.set("n", "<leader>a", ":Alpha<cr>", { desc = "Open Alpha start page" })
   end,
 }

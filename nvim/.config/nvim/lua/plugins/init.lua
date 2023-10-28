@@ -6,21 +6,10 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       { "j-hui/fidget.nvim", opts = {}, tag = "legacy" },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       "folke/neodev.nvim",
-    },
-  },
-
-  -- DAP debugging & stuff
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "theHamsta/nvim-dap-virtual-text",
     },
   },
 
