@@ -9,12 +9,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap("<leader>lr", vim.lsp.buf.rename, "[L]SP [R]ename")
-  nmap("<leader>la", vim.lsp.buf.code_action, "[L]SP [A]ction")
+  nmap("<leader>lr", vim.lsp.buf.rename, "[R]ename")
+  nmap("<leader>la", vim.lsp.buf.code_action, "code [A]ction")
 
-  nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-  nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-  nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+  nmap("gd", vim.lsp.buf.definition, "Go to [D]efinition")
+  nmap("gr", require("telescope.builtin").lsp_references, "Go to [R]eferences")
+  nmap("gI", vim.lsp.buf.implementation, "Go to [I]mplementation")
 
   nmap("<leader>lD", vim.lsp.buf.type_definition, "Type [D]efinition")
   nmap("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
