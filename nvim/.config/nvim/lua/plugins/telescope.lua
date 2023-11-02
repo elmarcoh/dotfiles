@@ -68,7 +68,8 @@ return {
         require("telescope.builtin").diagnostics,
         { desc = "[F]ind [D]iagnostics" }
       )
-      vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "[F]ind [K]eymaps" })
+      vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "[F]ind [K]eymap" })
+      vim.keymap.set("n", "<leader>fc", require("telescope.builtin").commands, { desc = "[F]ind [C]command" })
     end,
   },
 
