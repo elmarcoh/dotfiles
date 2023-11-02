@@ -6,22 +6,6 @@ return {
     dependencies = {
       {
         "rcarriga/nvim-dap-ui",
-        keys = {
-          {
-            "<leader>do",
-            function()
-              require("dapui").open()
-            end,
-            desc = "Open Debugger",
-          },
-          {
-            "<leader>dc",
-            function()
-              require("dapui").close()
-            end,
-            desc = "Open Debugger",
-          },
-        },
       },
     },
     config = function()
@@ -31,7 +15,14 @@ return {
         automatic_installation = true,
         handlers = {},
       })
-      require("dapui").setup(n)
+      local dap = require("dap")
+
+      local dapui = require("dapui")
+      dapui.setup()
+
+      vim.keymap.set("n", "<leader>do", dapui.open, { desc = "Debugger Open" })
+      vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "Debugger Close" })
+      vim.keymap.set("n", "<leader>dk", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
     end,
   },
   "williamboman/mason-lspconfig.nvim",
