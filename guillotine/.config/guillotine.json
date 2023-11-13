@@ -1,0 +1,48 @@
+{
+  "settings": {
+    "loglevel": "warning"
+  },
+  "menu": [
+    {
+      "type": "switch",
+      "icon": "preferences-desktop-keyboard-shortcuts-symbolic",
+      "title": "disable super key",
+      "start": "/home/marcos/bin/superkey.sh disable",
+      "stop": "/home/marcos/bin/superkey.sh enable",
+      "check": "/home/marcos/bin/superkey.sh check",
+      "keepMenuOpen": "yes",
+      "interval_s": 5
+    },
+    {
+      "type": "submenu",
+      "title": "Guillotine",
+      "icon": "guillotine-symbolic",
+      "items": [
+        {
+          "type": "command",
+          "title": "Configuration",
+          "command": "gnome-terminal -e 'nvim .config/guillotine.json'",
+          "instancing": "singleInstance",
+          "icon": "preferences-other-symbolic",
+          "killOnDisable": false
+        },
+        {
+          "type": "command",
+          "title": "Log",
+          "command": "gnome-terminal -e 'journalctl -f GNOME_SHELL_EXTENSION_UUID=guillotine@fopdoodle.net' ",
+          "instancing": "singleInstance",
+          "icon": "emblem-documents-symbolic",
+          "killOnDisable": false
+        },
+        {
+          "type": "command",
+          "title": "Log gnome-shell",
+          "command": "gnome-terminal -e 'journalctl -f _COMM=gnome-shell' ",
+          "instancing": "singleInstance",
+          "icon": "emblem-documents-symbolic",
+          "killOnDisable": false
+        }
+      ]
+    }
+  ]
+}

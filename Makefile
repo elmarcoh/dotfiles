@@ -11,7 +11,8 @@ linux-chrome \
 nvim \
 tmux \
 zsh \
-neofetch 
+neofetch \
+guillotine
 
 .PHONY: $(targets)
 
