@@ -32,10 +32,10 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"
 
 -- Netrw with tree view (<leader>3)
-vim.g.netrw_banner=0
-vim.g.netrw_browse_split=4
-vim.g.netrw_altv=2
-vim.g.netrw_liststyle=3
+vim.g.netrw_banner = 0
+vim.g.netrw_browse_split = 4
+vim.g.netrw_altv = 2
+vim.g.netrw_liststyle = 3
 
 -- smaller tabs and default indent
 vim.o.shiftwidth = 4
@@ -65,7 +65,7 @@ require("lazy").setup("plugins")
 require("neodev").setup()
 
 -- specific settings
-require('lsp')
-require('keymaps')
+require("lsp")
+require("keymaps")
 
 -- vim: ts=2 sts=2 sw=2 et

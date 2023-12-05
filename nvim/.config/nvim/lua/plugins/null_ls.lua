@@ -11,7 +11,7 @@ return {
 						"css",
 						"html",
 						"yaml",
-					}
+					},
 				}),
 			},
 		})
