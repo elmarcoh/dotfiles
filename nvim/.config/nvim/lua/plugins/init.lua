@@ -71,7 +71,7 @@ return {
   },
 
   -- dreaded copilot 💀
-  { "github/copilot.vim" },
+  -- { "github/copilot.vim" },
 
   {
     -- Manage Git repo from neovim

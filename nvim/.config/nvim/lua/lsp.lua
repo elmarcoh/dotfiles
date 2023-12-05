@@ -40,8 +40,8 @@ local on_attach = function(_, bufnr)
   nmap("<leader>lf", vim.lsp.buf.format, "[F]ormat current file")
 
   require("which-key").register({
-    ["<leader>l"] = {" ", "+LSP"},
-    ["<leader>lw"] = {" ", "+Workspace"},
+    ["<leader>l"] = { " ", "+LSP" },
+    ["<leader>lw"] = { " ", "+Workspace" },
   })
 end
 
@@ -78,7 +78,13 @@ mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
 })
 
-require'lspconfig'.gdscript.setup{}
+require("lspconfig").gdscript.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+})
 
 mason_lspconfig.setup_handlers({
   function(server_name)
