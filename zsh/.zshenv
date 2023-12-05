@@ -92,3 +92,4 @@ export XZ_DEFAULTS="-T 3"
 [[ -d $HOME/bin ]] && path+=($HOME/bin)
 [[ -f $HOME/.gvm/scripts/gvm ]] && source $HOME/.gvm/scripts/gvm
 [[ -f $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+[[ -f $HOME/.config/godotenv/godot/bin ]] && godot=$HOME/.config/godotenv/godot/bin
