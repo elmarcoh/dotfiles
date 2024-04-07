@@ -39,8 +39,8 @@ bindkey "^Z" push-line  # save current command in stack (for next line)
 
 # antigen plugin manager
 # https://github.com/zsh-users/antigen
-#
-2>/dev/null source /usr/share/zsh/share/antigen.zsh || source /usr/local/share/antigen/antigen.zsh
+2>/dev/null source /usr/local/share/antigen/antigen.zsh || \
+2>/dev/null source /usr/share/zsh/share/antigen.zsh
 
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-syntax-highlighting
