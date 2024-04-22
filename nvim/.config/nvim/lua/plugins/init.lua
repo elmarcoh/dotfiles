@@ -16,7 +16,12 @@ return {
   -- Useful plugin to show you keybinds.
   {
     "folke/which-key.nvim",
-    opts = {},
+    config = function()
+      require("which-key").register({
+        ["<leader>f"] = { name = "Fuzzy Find" },
+        ["<leader>d"] = { name = "Debug/Diagnostics" },
+      })
+    end,
   },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -82,6 +87,7 @@ return {
   {
     -- Manage Git repo from neovim
     "NeogitOrg/neogit",
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",      -- required
       "nvim-telescope/telescope.nvim", -- optional
@@ -89,6 +95,9 @@ return {
       "ibhagwan/fzf-lua",           -- optional
     },
     config = true,
+    keys = {
+      { "<leader>n", ":Neogit<cr>", desc = "Open Neogit" },
+    },
   },
 }
 -- vim: ts=2 sts=2 sw=2 expandtab

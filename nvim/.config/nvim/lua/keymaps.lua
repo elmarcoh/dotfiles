@@ -27,13 +27,10 @@ vim.keymap.set("n", "<Tab>", ":bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bprevious<cr>", { desc = "Previous buffer" })
 
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite file" })
-
-vim.keymap.set("n", "<leader>n", ":Neogit<cr>", { desc = "Open Neogit" })
-
+--
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 
-require("which-key").register({ ["<leader>d"] = { "", "+Diagnostics" } })
 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
