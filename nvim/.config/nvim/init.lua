@@ -42,6 +42,7 @@ vim.g.netrw_liststyle = 3
 -- smaller tabs and default indent
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
+vim.o.scrolloff = 8
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
