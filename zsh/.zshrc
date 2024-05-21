@@ -44,6 +44,7 @@ bindkey "^Z" push-line  # save current command in stack (for next line)
 
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle metaory/zsh-roundy-prompt
 
 antigen apply
 
@@ -58,7 +59,7 @@ fi
 eval "$(pyenv init - zsh)"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 
