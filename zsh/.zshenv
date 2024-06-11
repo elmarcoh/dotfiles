@@ -10,34 +10,27 @@ fi
 
 alias grep="grep --color=auto"
 
-# ls
-alias ll="lsd -l"
-alias lla="lsd -la"
-alias ltree="lsd --tree"
-alias la="ls -a"
+# ls -> eza
+alias eza="eza --icons --group-directories-first"
+alias ls="eza"
+alias ll="eza -l"
+alias lla="eza -la"
+
 alias cp="cp -i"  # ask before overwritting
 
 # Git stuff
-alias gst="git status"
 alias gg="git status"
 alias gfetch="git fetch --all"
-alias ggrep="git grep"
-alias ggrepc="git grep -C 5"
 
 alias gcm="git commit"
-alias gcmm="git commit -m"
 alias gco="git checkout"
 alias gpull="git pull --rebase"
-alias gpush="git push"
 
-alias glog="git log --stat"
-alias glg="git log --oneline"
+alias gll="git log --stat"
+alias glo="git log --oneline"
 
 alias gdd='git diff'
-alias gdc='git diff --cached'
-
-
-alias gn="git-number"
+alias gddc='git diff --cached'
 
 # docker
 alias dcp='docker compose'
