@@ -17,9 +17,9 @@ return {
   {
     "folke/which-key.nvim",
     config = function()
-      require("which-key").register({
-        ["<leader>f"] = { name = "Fuzzy Find" },
-        ["<leader>d"] = { name = "Debug/Diagnostics" },
+      require("which-key").add({
+        {"<leader>f", group= "Fuzzy Find" },
+        {"<leader>d", group = "Debug/Diagnostics" },
       })
     end,
   },

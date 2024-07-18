@@ -39,9 +39,9 @@ local on_attach = function(_, bufnr)
 
   nmap("<leader>lf", vim.lsp.buf.format, "[F]ormat current file")
 
-  require("which-key").register({
-    ["<leader>l"] = { " ", "+LSP" },
-    ["<leader>lw"] = { " ", "+Workspace" },
+  require("which-key").add({
+    {"<leader>l", group="+LSP"},
+    {"<leader>lw", group="+Workspace"},
   })
 end
 
