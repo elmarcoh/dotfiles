@@ -12,6 +12,9 @@ return {
       ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "vimdoc", "vim" },
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = false,
+      ignore_install = {},
+      sync_install = false,
+      modules = {},
       highlight = { enable = true },
       indent = { enable = true, disable = { "python" } },
       incremental_selection = {
