@@ -61,6 +61,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 # eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
