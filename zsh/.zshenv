@@ -24,7 +24,9 @@ alias gfetch="git fetch --all"
 
 alias gcm="git commit"
 alias gco="git checkout"
-alias gadd="git status -s|fzf -m --height=45% --preview='git diff --color {}'|cut -c3-|xargs git add"
+alias gadd="git status -s\
+  |grep '^\s'|cut -c1-|fzf -m --height=45% --preview='git diff --color -- \$(echo {}|cut -c3-)'\
+  |cut -c3-|xargs git add"
 alias gsw="git branch|cut -c3-|fzf --height=45% --preview='git log -3 --stat --color {}'|xargs -I{} git switch \"{}\""
 alias gswr="git branch -r|cut -c3-|fzf --height=45% --preview='git log -3 --stat --color {}'|cut -d'/' -f2-|xargs -I{} git switch \"{}\""
 alias gpull="git pull --rebase"
