@@ -14,6 +14,14 @@
       "interval_s": 5
     },
     {
+      "type": "command",
+      "title": "Run Steam",
+      "command": "flatpak run com.raggesilver.BlackBox -c ~/bin/steam.sh",
+      "instancing": "singleInstance",
+      "icon": "applications-games-symbolic",
+      "killOnDisable": false
+    },
+    {
       "type": "submenu",
       "title": "Guillotine",
       "icon": "guillotine-symbolic",
