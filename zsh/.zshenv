@@ -30,6 +30,8 @@ alias gadd="git status -s\
 alias gsw="git branch|cut -c3-|fzf --height=45% --preview='git log -3 --stat --color {}'|xargs -I{} git switch \"{}\""
 alias gswr="git branch -r|cut -c3-|fzf --height=45% --preview='git log -3 --stat --color {}'|cut -d'/' -f2-|xargs -I{} git switch \"{}\""
 alias gpull="git pull --rebase"
+alias gpll="git pull --rebase"
+alias gpss="git push"
 
 alias gll="git log --stat"
 alias glo="git log --oneline"
