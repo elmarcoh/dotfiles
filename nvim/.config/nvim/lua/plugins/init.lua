@@ -18,8 +18,9 @@ return {
     "folke/which-key.nvim",
     config = function()
       require("which-key").add({
-        {"<leader>f", group= "Fuzzy Find" },
-        {"<leader>d", group = "Debug/Diagnostics" },
+        { "<leader>f", group = "Fuzzy Find" },
+        { "<leader>d", group = "Debug/Diagnostics" },
+        { "<leader>g", group = "[Git]signs" },
       })
     end,
   },
@@ -39,8 +40,11 @@ return {
     },
 
     keys = {
-      { "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>",              desc = "[G]itsigns [H]unk" },
-      { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "[G]itsigns [B]lame toggle" },
+      { "<leader>gg", "<cmd>Gitsigns preview_hunk<cr>",              desc = "Get Hunk" },
+      { "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>",                desc = "Reset Hunk" },
+      { "<leader>gn", "<cmd>Gitsigns next_hunk<cr>",                 desc = "Next Hunk" },
+      { "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>",                 desc = "Previous Hunk" },
+      { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Blame toggle" },
     },
   },
   -- colorschemes
