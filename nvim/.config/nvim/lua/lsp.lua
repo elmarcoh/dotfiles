@@ -51,7 +51,6 @@ end
 -- Add any additional override configuration in the following table.
 -- It will be passed to the `settings` field of the server config.
 local servers = {
-  gopls = {},
   pyright = {},
   ts_ls = {},
   lua_ls = {
