@@ -39,6 +39,8 @@ alias glo="git log --oneline"
 alias gdd='git diff'
 alias gddc='git diff --cached'
 
+alias gsave='git stash save'
+alias gpop='git stash pop'
 # docker
 alias dcp='docker compose'
 
@@ -87,8 +89,15 @@ export AWS_PAGER=""
 # setting to 0 will make it use all cores
 export XZ_DEFAULTS="-T 3"
 
+## SSH agent
+# export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket
+# for this one enable with `systemctl enable --user gcr-ssh-agent.socket`
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+
 [[ -f $HOME/.env ]] && source $HOME/.env
 [[ -d $HOME/go/bin ]] && path+=($HOME/go/bin)
 [[ -d $HOME/bin ]] && path+=($HOME/bin)
+[[ -d $HOME/.local/bin ]] && path+=($HOME/.local/bin)
 [[ -f $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+[[ -f /usr/share/nvm/nvm.sh ]] && source /usr/share/nvm/nvm.sh
 [[ -f $HOME/.config/godotenv/godot/bin ]] && godot=$HOME/.config/godotenv/godot/bin
