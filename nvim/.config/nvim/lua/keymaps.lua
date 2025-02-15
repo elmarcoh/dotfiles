@@ -11,6 +11,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- fast delete buffer, write, etc
 vim.keymap.set("n", ";d", ":bd<cr>", { silent = true })
 vim.keymap.set("n", ";w", ":w<cr>", { silent = true })
 
@@ -31,9 +32,6 @@ vim.keymap.set("n", "sh", "<C-w>h", { desc = "Left split" })
 vim.keymap.set("n", "sj", "<C-w>j", { desc = "Down split" })
 vim.keymap.set("n", "sk", "<C-w>k", { desc = "Up split" })
 vim.keymap.set("n", "sl", "<C-w>l", { desc = "Right split" })
-
--- Fast write
-vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite file" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
