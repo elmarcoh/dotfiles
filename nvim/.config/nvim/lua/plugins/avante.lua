@@ -36,14 +36,12 @@ return {
   -- },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
-  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "hrsh7th/nvim-cmp",                                   -- autocompletion for avante commands and mentions
-    "nvim-telescope/telescope.nvim",                      -- for file_selector provider telescope
-    { "zbirenbaum/copilot.lua", lazy = false, opts = {} }, -- for providers='copilot'
-    --- The below dependencies are optional,
+    "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    "zbirenbaum/copilot.lua",        -- for providers='copilot'
   },
 }
