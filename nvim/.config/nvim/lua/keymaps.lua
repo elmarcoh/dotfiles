@@ -39,3 +39,13 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnos
 
 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- Debugging (DAP)
+local dap = require("dap")
+vim.keymap.set("n", "<leader>du", require("dapui").toggle, { desc = "Toggle Debugger UI" })
+vim.keymap.set("n", "<leader>dk", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+vim.keymap.set("n", "<leader>dr", dap.continue, { desc = "Continue/Run" })
+vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Debug Step Into" })
+vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Debug Step Over" })
+vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Debug Step Out" })
+-- vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "Terminate Debug" })
