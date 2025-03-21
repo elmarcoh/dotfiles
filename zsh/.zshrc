@@ -50,7 +50,7 @@ antigen apply
 
 # Antigen likes the roundy colors to come afterwards
 typeset -gA RT=(
-  bg_ok 4    fg_ok 0    icon_ok " "
+  bg_ok 4    fg_ok 0    icon_ok ""
   bg_err 1   fg_err 0   icon_err " "
   bg_dir 7   fg_dir 8  icon_time "󰑓 "
   bg_usr 4   fg_usr 0
@@ -63,7 +63,7 @@ typeset -gA RT=(
 # show stuff in new terminals except when recording terminal
 if [[ $ASCIINEMA_REC != "1" ]]
 then
-  which neofetch > /dev/null && neofetch
+  which fastfetch > /dev/null && fastfetch -c /usr/share/fastfetch/presets/examples/8.jsonc
 fi
 
 eval "$(pyenv init - zsh)"
