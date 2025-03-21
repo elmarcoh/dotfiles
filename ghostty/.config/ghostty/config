@@ -1,9 +1,10 @@
+# font-family=Adwaita Mono
 font-family=JetBrainsMonoNL Nerd Font
 font-size=14
 font-thicken=true
 adjust-cell-width = -10%
 theme=Ayu Mirage
 # window-decoration=false
-# gtk-titlebar=false
+gtk-titlebar=false
 
 # vim: ft=confini
