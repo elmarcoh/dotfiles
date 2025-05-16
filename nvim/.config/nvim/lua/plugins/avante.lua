@@ -43,5 +43,12 @@ return {
     "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
     "zbirenbaum/copilot.lua",        -- for providers='copilot'
-  },
+    {
+      -- Make sure to set this up properly if you have lazy=true
+      'MeanderingProgrammer/render-markdown.nvim',
+      opts = {
+        file_types = { "markdown", "Avante" },
+      },
+      ft = { "markdown", "Avante" },
+    },  },
 }
