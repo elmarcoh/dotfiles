@@ -66,9 +66,11 @@ then
   which fastfetch > /dev/null && fastfetch -c /usr/share/fastfetch/presets/examples/8.jsonc
 fi
 
-eval "$(pyenv init - zsh)"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+if type pyenv > /dev/null; then
+  eval "$(pyenv init - zsh)"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 # eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
