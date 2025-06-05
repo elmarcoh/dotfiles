@@ -86,7 +86,7 @@ require("lspconfig").gdscript.setup({
   },
 })
 
-mason_lspconfig.setup_handlers({
+mason_lspconfig.setup({
   function(server_name)
     local settings = {
       capabilities = capabilities,

@@ -15,6 +15,7 @@ alias eza="eza --icons --group-directories-first"
 alias ls="eza"
 alias ll="eza -l"
 alias lla="eza -la"
+alias llt='eza -l -snew'
 
 alias cp="cp -i"  # ask before overwritting
 
