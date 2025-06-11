@@ -66,6 +66,7 @@ BASE_FG="#1e1e2e"
 
 GIT_BG="%K{$TEAL_BG}%F{$BASE_FG}"
 DIR_BG="%K{$CYAN_BG}%F{$BASE_FG}"
+CLOCK_FG="%F{$TEAL_BG}"
 
 # vcs_info for git branch
 autoload -Uz vcs_info
@@ -77,9 +78,12 @@ precmd() { vcs_info }
 USERNAME_BG='$(if [[ $? -ne 0 ]]; then echo "%K{'$RED_BG'}%F{'$BASE_FG'}"; else echo "%K{'$MAUVE_BG'}%F{'$BASE_FG'}"; fi)'
 
 # The final prompt, double quoted
-PROMPT="${USERNAME_BG} ${RESET}"\
+PROMPT="${USERNAME_BG} 󰣇  ${RESET}"\
 '${vcs_info_msg_0_:+${GIT_BG} ${vcs_info_msg_0_} ${RESET}}'\
 "${DIR_BG} %~ ${RESET} "
+
+# Right-side prompt with clock
+RPROMPT="${CLOCK_FG}%D{%H:%M}${RESET}"
 
 # }}}
 
