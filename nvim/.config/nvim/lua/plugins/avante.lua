@@ -5,14 +5,36 @@ return {
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     -- !! make sure to run `:Copilot auth`
-    provider = "copilot",
+    provider = "claude",
     -- This setting WILL ban you from Copilot due to token renewal SPAM
-    -- auto_suggestions_provider = "copilot",
+    auto_suggestions_provider = "claude",
     file_selector = {
       provider = "telescope",
     },
     windows = {
       width = 35,
+    },
+
+    -- Claude configuration
+    providers = {
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-sonnet-4-20250514", -- or "claude-3-5-sonnet-20241022"
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 4096,
+        },
+        api_key_name = "ANTHROPIC_API_KEY",
+      },
+    },
+
+    -- You can also configure dual mode or switch between providers
+    behaviour = {
+      auto_suggestions = true, -- Enable auto suggestions
+      auto_set_highlight_group = true,
+      auto_set_keymaps = true,
+      auto_apply_diff_after_generation = false,
+      support_paste_from_clipboard = false,
     },
   },
   -- opts = {
