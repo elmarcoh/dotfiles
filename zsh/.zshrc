@@ -13,6 +13,7 @@ setopt histsavenodups
 zstyle ':completion:*' rehash true  # automatically find new executables in path
 zstyle ':completion:*' menu select  # display white bg when cycling completion options
 
+## Key Bindings {{{
 # Navigate words with ctrl+arrow keys
 bindkey '^[Oc' forward-word
 bindkey '^[Od' backward-word
@@ -36,27 +37,51 @@ bindkey "^[[A" up-line-or-beginning-search   # Up key
 bindkey "^[[B" down-line-or-beginning-search # Down key
 
 bindkey "^Z" push-line  # save current command in stack (for next line)
+# }}}
 
-# antigen plugin manager
+# Plugins {{{
 # https://github.com/zsh-users/antigen
 2>/dev/null source /usr/local/share/antigen/antigen.zsh || \
 2>/dev/null source /usr/share/zsh/share/antigen.zsh
 
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle metaory/zsh-roundy-prompt
 
-antigen apply
+antigen apply # }}}
 
-# Antigen likes the roundy colors to come afterwards
-typeset -gA RT=(
-  bg_ok 4    fg_ok 0    icon_ok ""
-  bg_err 1   fg_err 0   icon_err " "
-  bg_dir 7   fg_dir 8  icon_time "󰑓 "
-  bg_usr 4   fg_usr 0
-  bg_git 13  fg_git 8
-  bg_time 3  fg_time 8
-)
+## Minimal Prompt {{{
+
+# Enable variable and command substitution in prompt
+setopt PROMPT_SUBST
+
+# Colors (Catppuccin purples + error red)
+# Colors (Catppuccin cyan to magenta gradient, desaturated)
+RESET="%f%k"
+CYAN_BG="#5fb3d4"
+TEAL_BG="#7bc4b8"
+MAUVE_BG="#a888d4"
+PINK_BG="#d4a5c7"
+RED_BG="#d4758a"
+BASE_FG="#1e1e2e"
+
+GIT_BG="%K{$TEAL_BG}%F{$BASE_FG}"
+DIR_BG="%K{$CYAN_BG}%F{$BASE_FG}"
+
+# vcs_info for git branch
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '%b'
+precmd() { vcs_info }
+
+# Conditional username color depending on last command exit code
+USERNAME_BG='$(if [[ $? -ne 0 ]]; then echo "%K{'$RED_BG'}%F{'$BASE_FG'}"; else echo "%K{'$MAUVE_BG'}%F{'$BASE_FG'}"; fi)'
+
+# The final prompt, double quoted
+PROMPT="${USERNAME_BG} ${RESET}"\
+'${vcs_info_msg_0_:+${GIT_BG} ${vcs_info_msg_0_} ${RESET}}'\
+"${DIR_BG} %~ ${RESET} "
+
+# }}}
 
 ## User confs
 
@@ -71,10 +96,11 @@ if type pyenv > /dev/null; then
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
 fi
-# eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# vim: foldmethod=marker
