@@ -22,7 +22,7 @@ return {
         model = "claude-sonnet-4-20250514", -- or "claude-3-5-sonnet-20241022"
         extra_request_body = {
           temperature = 0,
-          max_tokens = 4096,
+          max_tokens = 2048,
         },
         api_key_name = "ANTHROPIC_API_KEY",
       },
@@ -30,7 +30,7 @@ return {
 
     -- You can also configure dual mode or switch between providers
     behaviour = {
-      auto_suggestions = true, -- Enable auto suggestions
+      auto_suggestions = false, -- Enable auto suggestions
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = false,
