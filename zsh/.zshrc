@@ -41,12 +41,15 @@ bindkey "^Z" push-line  # save current command in stack (for next line)
 
 # Plugins {{{
 # https://github.com/zsh-users/antigen
-2>/dev/null source /usr/local/share/antigen/antigen.zsh || \
-2>/dev/null source /usr/share/zsh/share/antigen.zsh
 
+if [ ! -e ~/.local/share/antigen/antigen.zsh ]; then
+	mkdir -p ~/.local/share/antigen
+	curl -L git.io/antigen > ~/.local/share/antigen/antigen.zsh
+fi
+
+source $HOME/.local/share/antigen/antigen.zsh
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-syntax-highlighting
-
 antigen apply # }}}
 
 ## Minimal Prompt {{{
@@ -77,8 +80,9 @@ precmd() { vcs_info }
 # Conditional username color depending on last command exit code
 USERNAME_BG='$(if [[ $? -ne 0 ]]; then echo "%K{'$RED_BG'}%F{'$BASE_FG'}"; else echo "%K{'$MAUVE_BG'}%F{'$BASE_FG'}"; fi)'
 
+PROMPT_LOGO="${PROMPT_LOGO:-}"
 # The final prompt, double quoted
-PROMPT="${USERNAME_BG} 󰣇  ${RESET}"\
+PROMPT="${USERNAME_BG} ${PROMPT_LOGO} ${RESET}"\
 '${vcs_info_msg_0_:+${GIT_BG} ${vcs_info_msg_0_} ${RESET}}'\
 "${DIR_BG} %~ ${RESET} "
 
