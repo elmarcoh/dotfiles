@@ -94,7 +94,7 @@ RPROMPT="${CLOCK_FG}%D{%H:%M}${RESET}"
 ## User confs
 
 # show stuff in new terminals except when recording terminal
-if [[ $ASCIINEMA_REC != "1" ]]
+if [[ "$ASCIINEMA_REC" != "1" ]]
 then
   which fastfetch > /dev/null && fastfetch -c /usr/share/fastfetch/presets/examples/8.jsonc
 fi
