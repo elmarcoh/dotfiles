@@ -12,7 +12,6 @@ return {
     local luasnip = require("luasnip")
 
     luasnip.config.setup({})
-
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -50,6 +49,9 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
+        per_filetype = {
+          codecompanion = {"codecompanion"},
+        },
       },
     })
   end,
