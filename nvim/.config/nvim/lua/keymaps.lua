@@ -1,7 +1,7 @@
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- open netrw file explorer
-vim.keymap.set("n", "<leader>3", ":25Lex<cr>", { desc = "File explorer" })
+-- vim.keymap.set("n", "<leader>3", ":25Lex<cr>", { desc = "File explorer" })
 
 -- always keep curson on the center of screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

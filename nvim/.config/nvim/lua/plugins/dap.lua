@@ -7,7 +7,7 @@ return {
       {
         "jay-babu/mason-nvim-dap.nvim",
         opts = {
-          ensure_installed = { "python", "delve" },
+          -- ensure_installed = { "python", "delve" },
           automatic_installation = true,
           handlers = {},
         }
