@@ -90,21 +90,5 @@ return {
 
 	-- dreaded copilot 💀
 	-- { "github/copilot.vim" },
-
-	{
-		-- Manage Git repo from neovim
-		"NeogitOrg/neogit",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"nvim-telescope/telescope.nvim", -- optional
-			"sindrets/diffview.nvim", -- optional
-			"ibhagwan/fzf-lua", -- optional
-		},
-		config = true,
-		keys = {
-			{ "<leader>n", ":Neogit<cr>", desc = "Open Neogit" },
-		},
-	},
 }
 -- vim: ts=2 sts=2 sw=2 expandtab

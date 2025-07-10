@@ -13,12 +13,9 @@ local on_attach = function(_, bufnr)
   nmap("<leader>la", vim.lsp.buf.code_action, "code [A]ction")
 
   nmap("gd", vim.lsp.buf.definition, "Go to [D]efinition")
-  nmap("gr", require("telescope.builtin").lsp_references, "Go to [R]eferences")
   nmap("gI", vim.lsp.buf.implementation, "Go to [I]mplementation")
 
   nmap("<leader>lD", vim.lsp.buf.type_definition, "Type [D]efinition")
-  nmap("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
-  nmap("<leader>lws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
   -- See `:help K` for why this keymap
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")

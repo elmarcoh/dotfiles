@@ -23,6 +23,6 @@ return {
 
     { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
     { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-    { "<leader>ss", function() Snacks.picker.grep() end, desc = "Text" },
+    { "<leader>st", function() Snacks.picker.grep() end, desc = "Text" },
   }
 }
