@@ -3,7 +3,8 @@ return {
   opts = {
     explorer = {},
     picker = {
-      sources = {explorer = {}}
+      sources = {explorer = {}},
+      layout = {preset = "dropdown"},
     }
   },
   keys = {
