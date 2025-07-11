@@ -4,7 +4,7 @@ return {
     explorer = {},
     picker = {
       sources = {explorer = {}},
-      layout = {preset = "dropdown"},
+      layout = {preset = "bottom"},
     }
   },
   keys = {
