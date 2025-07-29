@@ -37,6 +37,10 @@ bindkey "^[[A" up-line-or-beginning-search   # Up key
 bindkey "^[[B" down-line-or-beginning-search # Down key
 
 bindkey "^Z" push-line  # save current command in stack (for next line)
+
+# Edit command on nvim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
 # }}}
 
 # Plugins {{{
