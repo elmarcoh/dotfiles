@@ -14,13 +14,13 @@ return {
     },
 
     adapters = {
-      anthropic = function ()
-        return require"codecompanion.adapters".extend("anthropic", {
+      anthropic = function()
+        return require("codecompanion.adapters").extend("anthropic", {
           env = {
             api_key = "ANTHROPIC_API_KEY",
           },
         })
-      end
+      end,
     },
   },
   dependencies = {
@@ -29,7 +29,7 @@ return {
     "ravitemer/codecompanion-history.nvim",
     {
       "MeanderingProgrammer/render-markdown.nvim",
-      ft = { "markdown", "codecompanion" }
+      ft = { "markdown", "codecompanion" },
     },
     {
       "echasnovski/mini.diff",
@@ -41,5 +41,10 @@ return {
         })
       end,
     },
+  },
+  keys = {
+    { "<Leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", mode = "n", desc = "Toggle [C]odeCompanion [C]hat" },
+    { "<Leader>cc", "<cmd>CodeCompanion<cr>", mode = "v", desc = "Toggle [C]odeCompanion [C]hat (inline)" },
+    { "<Leader>ca", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "Toggle [C]odeCompanion [A]ctions" },
   },
 }
