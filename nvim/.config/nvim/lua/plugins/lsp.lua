@@ -1,3 +1,2 @@
 -- LSP/DAP debugging & stuff
-return {
-}
+return {}
