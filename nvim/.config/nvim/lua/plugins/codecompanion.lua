@@ -32,13 +32,6 @@ return {
 		},
 
 		adapters = {
-			anthropic = function()
-				return require("codecompanion.adapters").extend("anthropic", {
-					env = {
-						api_key = "ANTHROPIC_API_KEY",
-					},
-				})
-			end,
 			openrouter = function()
 				return require("codecompanion.adapters").extend("openai_compatible", {
 					env = {
