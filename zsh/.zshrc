@@ -9,6 +9,7 @@ setopt extended_history
 setopt share_history
 setopt autopushd
 setopt histsavenodups
+setopt correct
 
 zstyle ':completion:*' rehash true  # automatically find new executables in path
 zstyle ':completion:*' menu select  # display white bg when cycling completion options
