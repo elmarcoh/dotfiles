@@ -80,7 +80,8 @@ mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
 })
 
-require("lspconfig").gdscript.setup({
+-- require("lspconfig").gdscript.setup({
+vim.lsp.config("gdscript", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	flags = {
