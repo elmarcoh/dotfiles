@@ -29,6 +29,7 @@ vim.o.undofile = true
 vim.o.updatetime = 250
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.modeline = false
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = "yes"

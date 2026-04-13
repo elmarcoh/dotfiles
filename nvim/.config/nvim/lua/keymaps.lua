@@ -13,7 +13,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- fast delete buffer, write, etc
 vim.keymap.set("n", ";d", ":bd<cr>", { silent = true })
-vim.keymap.set("n", ";w", ":w<cr>", { silent = true })
+vim.keymap.set("n", " w", ":w<cr>", { silent = true, desc = "Save file" })
 
 -- Remap for clipboard copy/paste
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Clipboard Yank" })
