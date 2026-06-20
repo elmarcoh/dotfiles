@@ -10,7 +10,7 @@ local on_attach = function(client, bufnr)
 	end
 
 	vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-  vim.keymap.set({'i'}, '<C-Space>', vim.lsp.completion.trigger, {buffer=bufnr, desk="LSP Complete"})
+  vim.keymap.set('i', '<C-o>', vim.lsp.completion.trigger, {buffer=bufnr, desk="LSP Complete"})
 
 	nmap("<leader>lr", vim.lsp.buf.rename, "[R]ename")
 	nmap("<leader>la", vim.lsp.buf.code_action, "code [A]ction")
@@ -77,15 +77,6 @@ local mason_lspconfig = require("mason-lspconfig")
 
 mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
-})
-
--- require("lspconfig").gdscript.setup({
-vim.lsp.config("gdscript", {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	flags = {
-		debounce_text_changes = 150,
-	},
 })
 
 mason_lspconfig.setup({

@@ -46,7 +46,7 @@ vim.o.tabstop = 4
 vim.o.scrolloff = 8
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noselect,popup"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
