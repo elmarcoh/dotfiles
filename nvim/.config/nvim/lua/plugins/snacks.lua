@@ -117,5 +117,12 @@ return {
 			end,
 			desc = "Text",
 		},
+		{
+			"<leader>sg",
+			function()
+				Snacks.picker.git_grep()
+			end,
+			desc = "Git Grep",
+		},
 	},
 }
