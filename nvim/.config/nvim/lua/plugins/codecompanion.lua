@@ -5,7 +5,8 @@ return {
 		"ravitemer/codecompanion-history.nvim",
 		{
 			"MeanderingProgrammer/render-markdown.nvim",
-			ft = { "markdown", "codecompanion" },
+			ft = { "codecompanion" },
+			-- ft = { "markdown", "codecompanion" },
 		},
 		{
 			"echasnovski/mini.diff",

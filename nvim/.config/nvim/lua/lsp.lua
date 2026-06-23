@@ -1,6 +1,6 @@
 -- LSP settings.lsp
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(client, bufnr)
+local on_attach = function(client_id, bufnr)
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = "LSP: " .. desc
@@ -9,8 +9,10 @@ local on_attach = function(client, bufnr)
 		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-  vim.keymap.set('i', '<C-o>', vim.lsp.completion.trigger, {buffer=bufnr, desk="LSP Complete"})
+	vim.lsp.completion.enable(true, client_id, bufnr, { autotrigger = true })
+	vim.keymap.set("i", "<C-Space>", function()
+		vim.lsp.completion.get()
+	end, { buffer = bufnr, desc = "LSP Complete" })
 
 	nmap("<leader>lr", vim.lsp.buf.rename, "[R]ename")
 	nmap("<leader>la", vim.lsp.buf.code_action, "code [A]ction")
@@ -83,7 +85,7 @@ mason_lspconfig.setup({
 	function(server_name)
 		local settings = {
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 			settings = servers[server_name],
 		}
 		-- Until I have to deal with ruby again
@@ -93,4 +95,16 @@ mason_lspconfig.setup({
 		require("lspconfig")[server_name].setup(settings)
 	end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	-- pattern = "*.gd",
+	callback = function(args)
+		on_attach(args.data.client_id, args.buf)
+		-- vim.lsp.completion.enable(true, args.data.client_id, args.buf, { autotrigger = true })
+		-- vim.keymap.set({ "i" }, "<C-Space>", function()
+		-- 	vim.lsp.completion.get()
+		-- end, { buffer = args.buf })
+	end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
