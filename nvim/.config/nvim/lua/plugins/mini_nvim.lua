@@ -19,5 +19,25 @@ return {
 				hex_color = hipatterns.gen_highlighter.hex_color(),
 			},
 		})
+
+		-- from https://youtu.be/nB2EIjKtJ8U?si=ZFcoBBtwaielMpuS&t=645
+		require "mini.notify".setup({
+			content = {
+				format = function(notif)
+					return notif.msg
+				end,
+			},
+			window = {
+				config = function()
+					return {
+						title = "",
+						anchor = "SE",
+						row = vim.o.lines - 2,
+						col = vim.o.columns,
+						border = "none",
+					}
+				end,
+			}
+		})
 	end,
 }

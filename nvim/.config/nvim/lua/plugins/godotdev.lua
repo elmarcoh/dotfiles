@@ -9,5 +9,6 @@ return {
 		autostart_editor_server = true, -- optional, start server automatically
 		inline_hints = { enabled = true },
 		treesitter = { auto_setup = false },
+		formatter = "gdformat",
 	},
 }
