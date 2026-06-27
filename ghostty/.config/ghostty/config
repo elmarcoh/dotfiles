@@ -1,10 +1,10 @@
-# font-family=Adwaita Mono
 font-family=JetBrainsMonoNL Nerd Font
 font-size=11
 font-thicken=true
 adjust-cell-width = -10%
-theme=Ayu Mirage
-# window-decoration=false
+theme=Aura
 gtk-titlebar=false
+custom-shader = ~/Code/ghostty-cursor-shaders/cursor_warp.glsl
+custom-shader = ~/Code/ghostty-cursor-shaders/ripple_rectangle_cursor.glsl
 
 # vim: ft=confini
