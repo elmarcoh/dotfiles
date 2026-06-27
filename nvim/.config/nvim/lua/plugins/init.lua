@@ -50,14 +50,6 @@ return {
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Blame toggle" },
 		},
 	},
-	-- colorschemes
-	-- {
-	--   "folke/tokyonight.nvim",
-	--   priority = 1000,
-	--   config = function()
-	--     vim.cmd.colorscheme("tokyonight-night")
-	--   end,
-	-- },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
