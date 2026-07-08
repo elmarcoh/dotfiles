@@ -10,6 +10,7 @@ input {
     keyboard {
         xkb {
             layout "us"
+            variant "altgr-intl"
             // use caps lock as escape shift+esc for caps_lock
             options "caps:escape_shifted_capslock"
         }
@@ -67,7 +68,7 @@ input {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -77,7 +78,7 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "1920x1200@60.003"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.3
@@ -95,14 +96,15 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=2844 y=0
-.
+    position x=2744 y=0
+    backdrop-color "#1e1e2e"
 }
 
-/-output "Samsung Electric Company U28E590 HTPK800358" {
-    scale 1.5
+output "Samsung Electric Company U28E590 HTPK800358" {
+    mode "3840x2160@60.000"
+    scale 1.4
     transform "normal"
-    backdrop-color "#1e97b5"
+    backdrop-color "#1e1e2e"
     position x=0 y=0
 }
 
@@ -262,6 +264,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/marcos/Pictures/Wallpapers/wallhaven-vpoem3.jpg"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
