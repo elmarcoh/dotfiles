@@ -15,6 +15,12 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 		},
 	},
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = { 'neovim-treesitter/treesitter-parser-registry' },
+    lazy = false,
+    build = ':TSUpdate',
+  },
 
 	-- Useful plugin to show you keybinds.
 	{

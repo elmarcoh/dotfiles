@@ -12,14 +12,17 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- fast delete buffer, write, etc
-vim.keymap.set("n", ";d", ":bd<cr>", { silent = true })
-vim.keymap.set("n", " w", ":w<cr>", { silent = true, desc = "Save file" })
+vim.keymap.set("n", ";d", ":bd<cr>", { silent = true, desc = "[d]elete Buffer" })
+vim.keymap.set("n", ";w", ":w<cr>", { silent = true, desc = "Save file" })
 
 -- Remap for clipboard copy/paste
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Clipboard Yank" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Clipboard Paste" })
 vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Clipboard Line Yank" })
 vim.keymap.set("n", "<leader>P", '"+P', { desc = "Clipboard Line Paste" })
+
+--clear search
+vim.keymap.set("n", "<leader>/", ":let @/=''<CR>", { desc = "Clear search term" })
 
 -- Buffer navigation
 vim.keymap.set("n", "<Tab>", ":bnext<cr>", { desc = "Next buffer" })

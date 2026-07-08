@@ -32,30 +32,55 @@ return {
 		},
 
 		adapters = {
-			openrouter = function()
-				return require("codecompanion.adapters").extend("openai_compatible", {
-					env = {
-						url = "https://openrouter.ai/api",
-						api_key = "OPENROUTER_API_KEY",
-						chat_url = "/v1/chat/completions",
-					},
-					schema = {
-						model = {
-							default = "qwen/qwen3-coder:free",
-						},
-					},
-				})
-			end,
+			http = {
+				openrouter = function()
+					return require("codecompanion.adapters").extend("openrouter", {
+						schema = { preset = { default = "qwen/qwen3-coder:free" } },
+					})
+				end,
+			},
 		},
 	},
 	keys = {
-		{ "<Leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", mode = "n", desc = "Toggle [C]odeCompanion [C]hat" },
-		{ "<Leader>cc", "<cmd>CodeCompanion<cr>", mode = "v", desc = "Toggle [C]odeCompanion [C]hat (inline)" },
+		{
+			"<Leader>cc",
+			"<cmd>CodeCompanionChat Toggle<cr>",
+			mode = "n",
+			desc = "[C]odeCompanion [C]hat"
+		},
+		{
+			"<Leader>ch",
+			function()
+				require("codecompanion").toggle_chat({
+					window_opts = {
+						layout = "horizontal",
+						position = "below",
+						height = 0.3,
+					},
+				})
+			end,
+			mode = "n",
+			desc = "[C]odeCompanion chat [H]orizontal",
+		},
+		{
+			"<Leader>cv",
+			function()
+				require("codecompanion").toggle_chat({
+					window_opts = {
+						layout = "vertical",
+						position = "right",
+						full_height = true,
+					},
+				})
+			end,
+			mode = "n",
+			desc = "[C]odeCompanion chat [V]ertical",
+		},
 		{
 			"<Leader>ca",
 			"<cmd>CodeCompanionActions<cr>",
 			mode = { "n", "v" },
-			desc = "Toggle [C]odeCompanion [A]ctions",
+			desc = "[C]odeCompanion [A]ctions",
 		},
 	},
 }
