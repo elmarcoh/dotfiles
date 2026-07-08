@@ -108,6 +108,10 @@ output "Samsung Electric Company U28E590 HTPK800358" {
     position x=0 y=0
 }
 
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 23
+}
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
@@ -322,8 +326,8 @@ window-rule {
 window-rule {
     match app-id="com.mitchellh.ghostty" title="Wiremix"
     open-floating true
-    min-height: 570
-    min-width: 720
+    min-height 570
+    min-width 720
 }
 
 // Example: block out two password managers from screen capture.
