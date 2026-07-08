@@ -64,17 +64,31 @@ setopt PROMPT_SUBST
 
 # Colors (Catppuccin purples + error red)
 # Colors (Catppuccin cyan to magenta gradient, desaturated)
-RESET="%f%k"
-CYAN_BG="#5fb3d4"
-TEAL_BG="#7bc4b8"
-MAUVE_BG="#a888d4"
-PINK_BG="#d4a5c7"
-RED_BG="#d4758a"
-BASE_FG="#1e1e2e"
 
-GIT_BG="%K{$TEAL_BG}%F{$BASE_FG}"
-DIR_BG="%K{$CYAN_BG}%F{$BASE_FG}"
-CLOCK_FG="%F{$TEAL_BG}"
+# Set PROMPT_COLOR_SCHEME=ansi to use terminal palette colors instead of Catppuccin hex colors.
+PROMPT_COLOR_SCHEME="${PROMPT_COLOR_SCHEME:-ansi}"
+
+if [[ "$PROMPT_COLOR_SCHEME" == "ansi" ]]; then
+  RESET=$'%{\e[0m%}'
+  USER_OK_BG=$'%{\e[45;30m%}'
+  USER_ERR_BG=$'%{\e[41;30m%}'
+  GIT_BG=$'%{\e[0m\e[36m%}'
+  DIR_BG=$'%{\e[106;30m%}'
+  CLOCK_FG=$'%{\e[36m%}'
+else
+  RESET="%f%k"
+  CYAN_BG="#5fb3d4"
+  TEAL_BG="#7bc4b8"
+  MAUVE_BG="#a888d4"
+  RED_BG="#d4758a"
+  BASE_FG="#1e1e2e"
+
+  USER_OK_BG="%K{$MAUVE_BG}%F{$BASE_FG}"
+  USER_ERR_BG="%K{$RED_BG}%F{$BASE_FG}"
+  GIT_BG="%K{$TEAL_BG}%F{$BASE_FG}"
+  DIR_BG="%K{$CYAN_BG}%F{$BASE_FG}"
+  CLOCK_FG="%F{$TEAL_BG}"
+fi
 
 # vcs_info for git branch
 autoload -Uz vcs_info
@@ -83,7 +97,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 precmd() { vcs_info }
 
 # Conditional username color depending on last command exit code
-USERNAME_BG='$(if [[ $? -ne 0 ]]; then echo "%K{'$RED_BG'}%F{'$BASE_FG'}"; else echo "%K{'$MAUVE_BG'}%F{'$BASE_FG'}"; fi)'
+USERNAME_BG='$(if [[ $? -ne 0 ]]; then echo "$USER_ERR_BG"; else echo "$USER_OK_BG"; fi)'
 
 PROMPT_LOGO="${PROMPT_LOGO:-}"
 # The final prompt, double quoted
