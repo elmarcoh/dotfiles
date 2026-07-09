@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 from mpris2 import get_players_uri, Player
 from mpris2.types.metadata_map import Metadata_Map
 from typing import Generator
