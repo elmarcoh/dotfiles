@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+
+from sys import exit
+from subprocess import run, PIPE
+
+from emoji import EMOJI_DATA
+
+if run(["/usr/bin/pkill", "-x", "fuzzel"]).returncode == 0:
+    exit(0)
+
+emojis = []
+formatted_items = []
+max_item_len = 0
+
+for emoji, emoji_data in EMOJI_DATA.items():
+    emojis.append(emoji)
+    item = f"{emoji} {emoji_data['en']}"
+    formatted_items.append(item)
+    max_item_len = max(len(item), max_item_len)
+
+menu_program = run(
+    [
+        "/usr/bin/fuzzel",
+        "-d",
+        "-w",
+        str(max_item_len),
+    ],
+    stdout=PIPE,
+    input="\n".join(formatted_items),
+    text=True,
+)
+
+if menu_program.stdout == "":
+    exit(0)
+
+# run(["/usr/bin/wtype", emojis[formatted_items.index(menu_program.stdout.rstrip())]],
+#     text=True,
+# )
+run(
+    ["/usr/bin/wl-copy", "-t", "text/plain"],
+    input=emojis[formatted_items.index(menu_program.stdout.rstrip())],
+    text=True,
+)
