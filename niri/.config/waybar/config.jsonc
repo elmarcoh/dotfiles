@@ -11,7 +11,7 @@
         "clock",
         "niri/mode",
         "niri/scratchpad",
-        "custom/media"
+        "custom/playerctl"
     ],
     // "modules-center": [
     //     "niri/window"
@@ -105,10 +105,10 @@
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
+        "icons": {
+          "blueman": "bluetooth-active-symbolic",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+        }
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -139,18 +139,15 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -195,18 +192,13 @@
         },
         "on-click": "ghostty --command='wiremix' --title='Wiremix'"
     },
-    "custom/media": {
-        "format": "{icon} {text}",
+    "custom/playerctl": {
+        "format": " 󰐊 {}",
         "return-type": "json",
-        "max-length": 100,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "interval": 2,
-        "exec": "$HOME/.config/waybar/mpriscontrol.py 2> /dev/null", // Script in resources folder
-        "on-click": "$HOME/.config/waybar/mpriscontrol.py play"
+        "max-length": 40,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
     },
     "custom/power": {
         "format" : "⏻",

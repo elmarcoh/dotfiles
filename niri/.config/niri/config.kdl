@@ -155,19 +155,15 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"(firefox|zen)$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
     match app-id="com.github.huluti.Coulr"
-    open-floating true
-}
-
-window-rule {
     match app-id="com.mitchellh.ghostty" title="Wiremix"
     open-floating true
-    min-height 570
-    min-width 720
+}
+
+// Move steam notifications
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 // Example: block out two password managers from screen capture.

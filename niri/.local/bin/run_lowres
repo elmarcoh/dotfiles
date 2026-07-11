@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+## lowers the screen resolution and runs a game
+MONITOR="Samsung Electric Company U28E590 HTPK800358"
+MODE="2560x1440@59.951"
+BIGMODE="3840x2160@60.000"
+
+niri msg output "$MONITOR" mode $MODE
+niri msg output "$MONITOR" scale 1
+echo "[run_lowres] running $@"
+sleep 3
+"$@"
+echo "[run_lowres] exiting $@"
+niri msg output "$MONITOR" mode $BIGMODE
+niri msg output "$MONITOR" scale 1.4

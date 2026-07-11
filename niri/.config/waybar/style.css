@@ -57,13 +57,16 @@ window#waybar.hidden {
 #wireplumber,
 #pulseaudio,
 #network,
-#clock,
-#tray {
+#clock {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 6px 12px;
   background-color: #1e1e2e;
   color: #181825;
+}
+
+#tray {
+  color: #FFFFFF
 }
 
 #custom-power {
