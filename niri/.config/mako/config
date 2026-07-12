@@ -6,4 +6,4 @@ border-size=1
 border-color=#94e2d5
 border-radius=8
 max-icon-size=42
-default-timeout=5000
+default-timeout=15000

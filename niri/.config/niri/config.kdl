@@ -82,8 +82,9 @@ output "Samsung Electric Company U28E590 HTPK800358" {
 // }}}
 
 cursor {
-    xcursor-theme "breeze_cursors"
-    xcursor-size 23
+    // xcursor-theme "breeze_cursors"
+    xcursor-theme "Sunity-cursors"
+    xcursor-size 28
 }
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
@@ -164,6 +165,7 @@ window-rule {
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=10 y=10 relative-to="bottom-right"
+	open-focused false
 }
 
 // Example: block out two password managers from screen capture.

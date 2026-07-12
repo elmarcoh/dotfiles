@@ -57,7 +57,12 @@ window#waybar.hidden {
 #wireplumber,
 #pulseaudio,
 #network,
-#clock {
+#clock,
+#temperature,
+#power-profiles-daemon,
+#cpu,
+#custom-playerctl,
+#tray {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 6px 12px;
@@ -65,8 +70,14 @@ window#waybar.hidden {
   color: #181825;
 }
 
+#power-profiles-daemon,
+#custom-playerctl,
 #tray {
-  color: #FFFFFF
+  color: #FFFFFF;
+}
+
+#temperature {
+  background-color: #f38ba8;
 }
 
 #custom-power {
@@ -82,6 +93,7 @@ window#waybar.hidden {
   color: #1793d1;
 }
 
+#cpu,
 #memory {
   background-color: #fab387;
 }
@@ -97,7 +109,8 @@ window#waybar.hidden {
   color: #FFFF00;
 }
 
-#battery.charging {
+#battery.charging,
+#battery.good {
   background-color: #a6e3a1;
   color: #181825;
 }

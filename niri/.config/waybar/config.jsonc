@@ -21,15 +21,15 @@
         "idle_inhibitor",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
         "cpu",
         "memory",
+        "backlight",
         "temperature",
-        // "backlight",
         // "keyboard-state",
         // "niri/language",
         "battery",
         // "battery#bat2",
+        "power-profiles-daemon",
         "tray",
         "custom/power"
     ],
@@ -120,7 +120,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{percentage}/{swapPercentage}%  ",
+        "format": "{percentage}/{swapPercentage}% ",
         "tooltip": true,
         "tooltip-format": "memory: {used} / {total} GiB\nswap:   {swapUsed} / {swapTotal} GiB"
     },
@@ -134,8 +134,9 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-icons": ["󱩎", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖"]
     },
     "battery": {
         "states": {
@@ -164,14 +165,14 @@
       }
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        // "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "",
-        "format-ethernet": "{ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-wifi": "󰖩",
+        "tooltip-format-wifi": "󰖩 {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰖪 Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "kitty -e nmtui"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
