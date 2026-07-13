@@ -161,6 +161,14 @@ window-rule {
     open-floating true
 }
 
+// Fix some apps drawing over the border, making it appear thinner
+// like Firefox, Zen, and apparently some GTK ones
+// https://github.com/niri-wm/niri/issues/895#issuecomment-2562626838
+window-rule {
+    match app-id=r#"(firefox|zen)$"#
+	clip-to-geometry true
+}
+
 // Move steam notifications
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
