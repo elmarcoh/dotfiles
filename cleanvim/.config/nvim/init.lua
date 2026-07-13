@@ -103,7 +103,6 @@ vim.lsp.config("efm", {
 })
 vim.lsp.enable("efm")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = {
@@ -125,6 +124,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end
 })
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.config("lua_ls",
 	{ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
@@ -146,6 +146,5 @@ vim.keymap
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P',
 	{ desc = 'Paste line from clipboard' })
-vim.keymap.set('n', '<leader>/',
-function() vim.fn.setreg('/', '') end,
+vim.keymap.set('n', '<leader>/', function() vim.fn.setreg('/', '') end,
 	{ desc = 'Clear search keyword' })
