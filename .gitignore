@@ -1,2 +1,3 @@
+nohup.out
 /neovim/.config/nvim/plugin
 /tmux/.config/systemd/user/*.wants/*
