@@ -56,20 +56,20 @@ vim.pack.add({
 		branch = "main"
 	}, { src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
-	{ src = "https://github.com/ibhagwan/fzf-lua" }, -- Mason & Co.
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
-	-- { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	-- { src = "https://github.com/jay-babu/mason-null-ls.nvim" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" }
 })
 
+-- Plugin setups
 require("rose-pine").setup({
 	styles = { bold = false, italic = true, transparency = true }
 })
 vim.cmd.colorscheme('rose-pine')
 require("which-key").setup()
 require("mini.pairs").setup()
-require("mini.tabline").setup({})
+require("mini.tabline").setup()
+require("mini.indentscope").setup()
 require("mini.notify").setup({
 	content = { format = function(notif) return notif.msg end },
 	window = {
@@ -83,26 +83,15 @@ require("mini.notify").setup({
 })
 local fzf_lua = require("fzf-lua")
 fzf_lua.setup({ winopts = { split = "belowright new" } })
-vim.keymap.set('n', '<leader>fg', fzf_lua.global, { desc = "Find Globally" })
-vim.keymap.set('n', '<leader>fk', fzf_lua.keymaps, { desc = "Find Keymaps" })
-vim.keymap.set('n', '<leader>fs', fzf_lua.live_grep, { desc = "Find Keymaps" })
 
 require("gitsigns").setup()
-
--- LSP
 require("mason").setup()
 
-vim.lsp.config("efm", {
-	init_options = { documentFormatting = true },
-	settings = {
-		rootMarkers = { ".git/" },
-		languages = {
-			lua = { { formatCommand = "lua-format -i", formatStdin = true } }
-		}
-	}
-})
-vim.lsp.enable("efm")
+local treesitter = require("nvim-treesitter")
+treesitter.install({ "lua", "python", "go", "gdscript"})
 
+-- LSP
+vim.lsp.inline_completion.enable()
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = {
@@ -114,8 +103,6 @@ vim.diagnostic.config({
 		}
 	}
 })
-vim.lsp.inline_completion.enable()
-vim.keymap.set('i', '<C- >', vim.lsp.completion.get, {})
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(ev)
@@ -128,23 +115,38 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.config("lua_ls",
 	{ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
-vim.lsp.enable({ "lua_ls", "pyright" })
+vim.lsp.enable({ "lua_ls", "pyright", "gdscript" })
 
-local treesitter = require("nvim-treesitter")
-treesitter.install({ "python" })
+vim.lsp.config("efm", {
+	init_options = { documentFormatting = true },
+	settings = {
+		rootMarkers = { ".git/" },
+		languages = {
+			lua = { { formatCommand = "lua-format -i", formatStdin = true } },
+			python = {
+				{ formatCommand = "black --no-color -q -", formatStdin = true }
+			},
+			gdscript = { { formatCommand = "gdformat -f -", formatStdin = true } }
+		}
+	}
+})
+vim.lsp.enable("efm")
 
 -- keymaps
-vim.keymap.set('n', "<leader>lf", vim.lsp.buf.format,
+local kset = vim.keymap.set
+kset('i', '<C- >', vim.lsp.completion.get, {})
+kset({ 'n', 'v' }, "<leader>lf", vim.lsp.buf.format,
 	{ desc = "Format current buffer" })
-vim.keymap.set('n', '<tab>', ':bn<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', 'df',
-	function() vim.diagnostic.open_float({ scope = "line" }) end,
+kset('n', '<tab>', ':bn<CR>', { desc = 'Next buffer' })
+kset('n', 'df', function() vim.diagnostic.open_float({ scope = "line" }) end,
 	{ desc = 'Open diagnostics float' })
-vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
-vim.keymap
-	.set({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = 'Yank line to clipboard' })
-vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from clipboard' })
-vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P',
-	{ desc = 'Paste line from clipboard' })
-vim.keymap.set('n', '<leader>/', function() vim.fn.setreg('/', '') end,
+kset({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+kset({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = 'Yank line to clipboard' })
+kset({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from clipboard' })
+kset({ 'n', 'v' }, '<leader>P', '"+P', { desc = 'Paste line from clipboard' })
+kset('n', '<leader>/', function() vim.fn.setreg('/', '') end,
 	{ desc = 'Clear search keyword' })
+
+kset('n', '<leader>fg', fzf_lua.global, { desc = "Find Globally" })
+kset('n', '<leader>fk', fzf_lua.keymaps, { desc = "Find Keymaps" })
+kset('n', '<leader>fs', fzf_lua.live_grep, { desc = "Find Keymaps" })
