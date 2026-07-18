@@ -117,6 +117,10 @@ layout {
         urgent-color "#9b0000"
     }
 
+	tab-indicator {
+		place-within-column
+	}
+
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
     // Left and right struts will cause the next window to the side to always be visible.
@@ -133,6 +137,8 @@ hotkey-overlay {
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/marcos/Pictures/Wallpapers/wallhaven-vpoem3.jpg"
 spawn-at-startup "mako"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -156,8 +162,10 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"(firefox|zen)$"# title="^Picture-in-Picture$"
+    match app-id=r#"(firefox|zen)$"# title=r#"^Extension: .Bitwarden Password Manager."#
     match app-id="com.github.huluti.Coulr"
     match app-id="com.mitchellh.ghostty" title="Wiremix"
+	match app-id="blueman-manager" title=r#" Devices$"#
     open-floating true
 }
 

@@ -8,7 +8,6 @@ BIGMODE="3840x2160@60.000"
 niri msg output "$MONITOR" mode $MODE
 niri msg output "$MONITOR" scale 1
 echo "[run_lowres] running $@"
-sleep 3
 "$@"
 echo "[run_lowres] exiting $@"
 niri msg output "$MONITOR" mode $BIGMODE
