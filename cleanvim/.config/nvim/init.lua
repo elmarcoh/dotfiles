@@ -88,7 +88,7 @@ require("gitsigns").setup()
 require("mason").setup()
 
 local treesitter = require("nvim-treesitter")
-treesitter.install({ "lua", "python", "go", "gdscript"})
+treesitter.install({ "lua", "python", "go", "gdscript" })
 
 -- LSP
 vim.lsp.inline_completion.enable()
@@ -115,7 +115,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.config("lua_ls",
 	{ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
-vim.lsp.enable({ "lua_ls", "pyright", "gdscript" })
+vim.lsp.enable({ "lua_ls", "pyright", "gdscript", "gopls" })
 
 vim.lsp.config("efm", {
 	init_options = { documentFormatting = true },
@@ -132,12 +132,16 @@ vim.lsp.config("efm", {
 })
 vim.lsp.enable("efm")
 
+-- other plugins
+require("codecompanion_plugin")
+
 -- keymaps
 local kset = vim.keymap.set
 kset('i', '<C- >', vim.lsp.completion.get, {})
 kset({ 'n', 'v' }, "<leader>lf", vim.lsp.buf.format,
 	{ desc = "Format current buffer" })
 kset('n', '<tab>', ':bn<CR>', { desc = 'Next buffer' })
+kset('n', '<S-tab>', ':bp<CR>', { desc = 'Prev buffer' })
 kset('n', 'df', function() vim.diagnostic.open_float({ scope = "line" }) end,
 	{ desc = 'Open diagnostics float' })
 kset({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
@@ -147,6 +151,14 @@ kset({ 'n', 'v' }, '<leader>P', '"+P', { desc = 'Paste line from clipboard' })
 kset('n', '<leader>/', function() vim.fn.setreg('/', '') end,
 	{ desc = 'Clear search keyword' })
 
-kset('n', '<leader>fg', fzf_lua.global, { desc = "Find Globally" })
-kset('n', '<leader>fk', fzf_lua.keymaps, { desc = "Find Keymaps" })
-kset('n', '<leader>fs', fzf_lua.live_grep, { desc = "Find Keymaps" })
+kset('n', '<leader>fg', fzf_lua.global, { desc = "Find [G]lobally" })
+kset('n', '<leader>fk', fzf_lua.keymaps, { desc = "Find [K]eymaps" })
+kset('n', '<leader>fs', fzf_lua.live_grep, { desc = "Find by [S]tring grep" })
+
+-- Random Autocommands
+
+-- LSP format on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+	pattern = { '*.go', "*.lua" },
+	callback = function() vim.lsp.buf.format() end
+})
