@@ -25,7 +25,7 @@ o.swapfile = false
 o.backup = false
 o.undodir = vim.fn.stdpath("data") .. "/undodir"
 o.undofile = true
-o.completeopt = "menu,fuzzy,popup,nosort,noselect"
+o.completeopt = "menuone,fuzzy,popup,nosort,noselect"
 
 -- FIX should make completion work with <Tab>
 -- o.wildmenu = true
@@ -58,7 +58,9 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" }
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/leoluz/nvim-dap-go" }
 })
 
 -- Plugin setups
@@ -86,6 +88,7 @@ fzf_lua.setup({ winopts = { split = "belowright new" } })
 
 require("gitsigns").setup()
 require("mason").setup()
+require("dap-go").setup()
 
 local treesitter = require("nvim-treesitter")
 treesitter.install({ "lua", "python", "go", "gdscript" })
@@ -137,9 +140,7 @@ require("codecompanion_plugin")
 
 -- keymaps
 local kset = vim.keymap.set
-kset('i', '<C- >', vim.lsp.completion.get, {})
-kset({ 'n', 'v' }, "<leader>lf", vim.lsp.buf.format,
-	{ desc = "Format current buffer" })
+kset('i', '<C-space>', vim.lsp.completion.get, {})
 kset('n', '<tab>', ':bn<CR>', { desc = 'Next buffer' })
 kset('n', '<S-tab>', ':bp<CR>', { desc = 'Prev buffer' })
 kset('n', 'df', function() vim.diagnostic.open_float({ scope = "line" }) end,
@@ -154,6 +155,23 @@ kset('n', '<leader>/', function() vim.fn.setreg('/', '') end,
 kset('n', '<leader>fg', fzf_lua.global, { desc = "Find [G]lobally" })
 kset('n', '<leader>fk', fzf_lua.keymaps, { desc = "Find [K]eymaps" })
 kset('n', '<leader>fs', fzf_lua.live_grep, { desc = "Find by [S]tring grep" })
+
+kset({ 'n', 'v' }, "<leader>lf", vim.lsp.buf.format,
+	{ desc = "[L]SP [f]ormat current buffer" })
+
+kset('n', '<leader>li', function()
+	vim.lsp.buf.code_action({
+		context = { only = { "source.organizeImports" } },
+		apply = true
+	})
+end, { desc = "[L]SP organize [i]mports" })
+
+local dap = require('dap')
+kset('n', '<leader>dt', dap.repl.toggle, { desc = "[D]ebug REPL [T]oggle" })
+kset('n', '<leader>db', dap.toggle_breakpoint,
+	{ desc = "[D]ebug [B]reakpoint Toggle" })
+kset('n', '<leader>dc', dap.continue, { desc = "[D]ebug [C]ontune" })
+kset('n', '<leader>ds', dap.terminate, { desc = "[D]ebug [S]top" })
 
 -- Random Autocommands
 
