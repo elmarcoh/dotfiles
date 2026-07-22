@@ -22,6 +22,14 @@
 	defaultBranch = main
 [alias]
 	ssh = stash save
-	br = branch
-	lg = log --oneline
-	co = checkout
+	a = add
+	au = add -u
+	c = commit
+	cm = commit -m
+	b = branch
+	l = log --oneline
+	d = diff
+	dc = diff --cached
+	ch = checkout
+	amend = commit --amend
+	qamend = commit --amend --no-edit
