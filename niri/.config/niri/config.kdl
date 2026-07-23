@@ -163,10 +163,11 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"(firefox|zen)$"# title="^Picture-in-Picture$"
     match app-id=r#"(firefox|zen)$"# title=r#"^Extension: .Bitwarden Password Manager."#
-    match app-id="com.github.huluti.Coulr"
     match app-id="com.mitchellh.ghostty" title="Wiremix"
 	match app-id="blueman-manager" title=r#" Devices$"#
     open-floating true
+    match app-id="com.github.huluti.Coulr"
+    match app-id="PortProton"
 }
 
 // Fix some apps drawing over the border, making it appear thinner
