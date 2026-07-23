@@ -70,6 +70,7 @@ require("rose-pine").setup({
 vim.cmd.colorscheme('rose-pine')
 require("which-key").setup()
 require("mini.pairs").setup()
+require("mini.pick").setup()
 require("mini.tabline").setup()
 require("mini.indentscope").setup()
 require("mini.notify").setup({

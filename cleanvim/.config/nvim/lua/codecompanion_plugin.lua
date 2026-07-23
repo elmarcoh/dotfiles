@@ -20,9 +20,10 @@ require("codecompanion").setup({
 
 	adapters = {
 		http = {
-			openrouter = function()
+			opts = { show_presets = false, show_model_choices = true },
+			openrouter = vim.env.OPENROUTER_API_KEY and function()
 				return require("codecompanion.adapters").extend("openrouter", {
-					schema = { preset = { default = "qwen/qwen3-coder:free" } }
+					schema = { model = { default = "openai/gpt-oss-20b:free" } }
 				})
 			end
 		}
